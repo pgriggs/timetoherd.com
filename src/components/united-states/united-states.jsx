@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 import { readRemoteFile } from "react-papaparse";
-import { parseDate, numberWithCommas } from "../../shared/tools";
 import CountUp from "react-countup";
 import "./country-section.css";
 
@@ -28,6 +27,7 @@ export const UnitedStates = () => {
           dateDiffInDays;
         setDailyVaccinationMA3day(movingAverage);
       }
+      return;
     });
   }
 
@@ -40,6 +40,7 @@ export const UnitedStates = () => {
           total_vaccinations: row[3],
         });
       }
+      return;
     });
     let dataLength = listOfDatesAndVaccinations.length;
     setVaccinationsListByDate(listOfDatesAndVaccinations);
@@ -61,17 +62,21 @@ export const UnitedStates = () => {
       }
     );
   };
+
   useEffect(() => {
     get_us_vaccine_data();
-  }, []);
+  }, [get_us_vaccine_data]);
+
   const daysToHerdPlaceholder = Math.round(
     (herdImmunnityVaccinationThreshold - immunePopulation) /
       dailyVaccinationMA3day
   );
+
   daysToHerdPlaceholder.toLocaleString("en");
   useEffect(() => {
     setDaysToHerd(daysToHerdPlaceholder);
-  }, [dailyVaccinationMA3day]);
+  }, [dailyVaccinationMA3day, daysToHerdPlaceholder]);
+
   return (
     <div className="country-section">
       <div class="hero-container">
