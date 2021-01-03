@@ -1,1 +1,4 @@
-https://epic-euclid-86f92b.netlify.app/ https://timetoherd.com/
+[[redirects]]
+  from = "https://epic-euclid-86f92b.netlify.app/"
+  to = "https://timetoherd.com/"
+  status = 301
