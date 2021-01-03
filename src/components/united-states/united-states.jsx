@@ -16,7 +16,7 @@ export const UnitedStates = () => {
   function calculateVaccinationMA(listOfDatesAndVaccinations) {
     let dataLength = listOfDatesAndVaccinations.length;
     let latestDaysNumbers = listOfDatesAndVaccinations[dataLength - 1];
-    listOfDatesAndVaccinations.map((item, index) => {
+    listOfDatesAndVaccinations.forEach((item, index) => {
       let dateDiffInMs = Math.abs(
         new Date(latestDaysNumbers.date) - new Date(item.date)
       );
@@ -27,20 +27,18 @@ export const UnitedStates = () => {
           dateDiffInDays;
         setDailyVaccinationMA3day(movingAverage);
       }
-      return;
     });
   }
 
   const setterOfSetters = (rawVaccineData) => {
     let listOfDatesAndVaccinations = [];
-    rawVaccineData.map((row, index) => {
+    rawVaccineData.forEach((row, index) => {
       if (row.length > 1 && index > 0) {
         listOfDatesAndVaccinations.push({
           date: row[1],
           total_vaccinations: row[3],
         });
       }
-      return;
     });
     let dataLength = listOfDatesAndVaccinations.length;
     setVaccinationsListByDate(listOfDatesAndVaccinations);
@@ -50,22 +48,19 @@ export const UnitedStates = () => {
     calculateVaccinationMA(listOfDatesAndVaccinations);
   };
 
-  const get_us_vaccine_data = () => {
-    readRemoteFile(
-      "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/country_data/United%20States.csv",
-      {
-        complete: (results) => {
-          console.log("Results:", results);
-          setterOfSetters(results.data);
-          console.log(vaccinationsListByDate);
-        },
-      }
-    );
-  };
-
   useEffect(() => {
+    const get_us_vaccine_data = () => {
+      readRemoteFile(
+        "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/country_data/United%20States.csv",
+        {
+          complete: (results) => {
+            setterOfSetters(results.data);
+          },
+        }
+      );
+    };
     get_us_vaccine_data();
-  }, [get_us_vaccine_data]);
+  }, []);
 
   const daysToHerdPlaceholder = Math.round(
     (herdImmunnityVaccinationThreshold - immunePopulation) /
@@ -79,7 +74,7 @@ export const UnitedStates = () => {
 
   return (
     <div className="country-section">
-      <div class="hero-container">
+      <div className="hero-container">
         <span className="time-to-heard-number">
           <CountUp end={daysToHerd || 0} duration={1} />
         </span>
