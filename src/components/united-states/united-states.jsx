@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import { readRemoteFile } from "react-papaparse";
 import CountUp from "react-countup";
@@ -11,7 +11,7 @@ export const UnitedStates = () => {
   const [dailyVaccinationMA3day, setDailyVaccinationMA3day] = useState();
   const [daysToHerd, setDaysToHerd] = useState();
   const [immunePopulation, setImmunePopulation] = useState();
-  const [vaccinationsListByDate, setVaccinationsListByDate] = useState();
+  //   const [vaccinationsListByDate, setVaccinationsListByDate] = useState();
 
   function calculateVaccinationMA(listOfDatesAndVaccinations) {
     let dataLength = listOfDatesAndVaccinations.length;
@@ -30,7 +30,7 @@ export const UnitedStates = () => {
     });
   }
 
-  const setterOfSetters = (rawVaccineData) => {
+  const setterOfSetters = useCallback((rawVaccineData) => {
     let listOfDatesAndVaccinations = [];
     rawVaccineData.forEach((row, index) => {
       if (row.length > 1 && index > 0) {
@@ -41,26 +41,26 @@ export const UnitedStates = () => {
       }
     });
     let dataLength = listOfDatesAndVaccinations.length;
-    setVaccinationsListByDate(listOfDatesAndVaccinations);
     setImmunePopulation(
       listOfDatesAndVaccinations[dataLength - 1].total_vaccinations
     );
     calculateVaccinationMA(listOfDatesAndVaccinations);
-  };
+  }, []);
+
+  const get_us_vaccine_data = useCallback(() => {
+    readRemoteFile(
+      "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/country_data/United%20States.csv",
+      {
+        complete: (results) => {
+          setterOfSetters(results.data);
+        },
+      }
+    );
+  }, [setterOfSetters]);
 
   useEffect(() => {
-    const get_us_vaccine_data = () => {
-      readRemoteFile(
-        "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/country_data/United%20States.csv",
-        {
-          complete: (results) => {
-            setterOfSetters(results.data);
-          },
-        }
-      );
-    };
     get_us_vaccine_data();
-  }, []);
+  }, [get_us_vaccine_data]);
 
   const daysToHerdPlaceholder = Math.round(
     (herdImmunnityVaccinationThreshold - immunePopulation) /
