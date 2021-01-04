@@ -28,7 +28,7 @@ export const MapChart = ({
       });
     } else {
       toast(
-        "hmmm...Looks like we don't have enought data for that country yet!"
+        "hmmm...Looks like we don't have enough data for " + NAME + " yet!"
       );
     }
   };

@@ -8,6 +8,7 @@ export const TimeToHerdCount = ({ selectedCountry, allVaccineData }) => {
   //     herdImmunityPopulationThreshold,
   //     setHerdImmunityPopulationThreshold,
   //   ] = useState();
+
   const [
     herdImmunnityVaccinationThreshold,
     setherdImmunnityVaccinationThreshold,

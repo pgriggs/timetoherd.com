@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import ReactTooltip from "react-tooltip";
 import "./App.css";
 import { TimeToHerdCount } from "./components/united-states/united-states";
+import { CountryDropdown } from "./components/country-dropdown/country-dropdown.js";
 import { readRemoteFile } from "react-papaparse";
 import { MapChart } from "./components/map-chart/map-chart.js";
 import { ToastContainer, Slide } from "react-toastify";
@@ -62,7 +63,10 @@ export default function App() {
           <p className="subheader">
             until herd immunity to Covid-19 is reached in the{" "}
             <span className="selected-country-text">
-              {selectedCountry.name}
+              <CountryDropdown
+                selectedCountry={selectedCountry}
+                setSelectedCountry={setSelectedCountry}
+              />
             </span>
           </p>
           <br></br>
