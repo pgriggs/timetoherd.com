@@ -1,10 +1,27 @@
 .App {
   text-align: center;
 }
+.country-section {
+  width: 900px;
+}
+.country-section .subheader {
+  white-space: nowrap;
+}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.country-section .selected-country-text {
+  color: #2e9bff;
+}
+
+/* react-toastify custom css */
+.Toastify__toast {
+  border-radius: 4px;
+  padding: 12px;
+  min-height: 40px;
+  background: #fefefe;
+  color: #0d0d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -14,7 +31,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #0d0d0d;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
