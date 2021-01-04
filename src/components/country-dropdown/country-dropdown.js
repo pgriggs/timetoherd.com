@@ -41,7 +41,7 @@ export const CountryDropdown = ({ selectedCountry, setSelectedCountry }) => {
       overlayClassName="country-dropdown"
       overlay={menu}
       placement="bottomRight"
-      trigger={["click", "hover"]}
+      trigger={["click"]}
       onVisibleChange={(visible) => dropdownVisibleChangeHandler(visible)}
       arrow
     >

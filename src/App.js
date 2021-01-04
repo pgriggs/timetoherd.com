@@ -6,6 +6,12 @@ import { CountryDropdown } from "./components/country-dropdown/country-dropdown.
 import { readRemoteFile } from "react-papaparse";
 import { MapChart } from "./components/map-chart/map-chart.js";
 import { ToastContainer, Slide } from "react-toastify";
+import {
+  SlidersTwoTone,
+  HeartTwoTone,
+  CheckCircleTwoTone,
+} from "@ant-design/icons";
+import "antd/dist/antd.css";
 import "react-toastify/dist/ReactToastify.css";
 // import { CountriesMasterList } from "./shared/data-factory.js";
 
@@ -49,13 +55,16 @@ export default function App() {
         transition={Slide}
         limit={5}
       />
-      <header className="App-header">
+      <header></header>
+      <div className="App-header">
         <div className="country-section">
           <div className="hero-container">
             <span className="time-to-heard-number">
               <TimeToHerdCount
                 selectedCountry={selectedCountry}
                 allVaccineData={allVaccineData}
+                requestedData="timetoherd"
+                requestedDataAsPercent={false}
               />
             </span>
             <span className="time-to-heard-unit">&nbsp;days</span>
@@ -69,6 +78,33 @@ export default function App() {
               />
             </span>
           </p>
+          <p className="country-meta-data">
+            <span className="datapoint">
+              <CheckCircleTwoTone twoToneColor="#52c41a" />
+              <TimeToHerdCount
+                selectedCountry={selectedCountry}
+                allVaccineData={allVaccineData}
+                requestedData="percentPopulationVaccinated"
+                requestedDataAsPercent={true}
+              />{" "}
+              % of population vaccinated
+            </span>
+            <span className="datapoint">
+              <SlidersTwoTone />
+              <TimeToHerdCount
+                selectedCountry={selectedCountry}
+                allVaccineData={allVaccineData}
+                requestedData="dailyMovingAverageAsPercentPopulation"
+                requestedDataAsPercent={true}
+              />{" "}
+              % of population vaccinated daily (3-day MA)
+            </span>
+            <span className="datapoint">
+              <HeartTwoTone twoToneColor="#eb2f96" />
+              <span className="datapoint-value">70% </span>needed to reach herd
+              immunity
+            </span>
+          </p>
           <br></br>
           <MapChart
             setTooltipContent={setContent}
@@ -77,7 +113,7 @@ export default function App() {
           />
           <ReactTooltip>{content}</ReactTooltip>
         </div>
-      </header>
+      </div>
     </div>
   );
 }

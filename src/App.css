@@ -5,10 +5,19 @@
   display: flex;
   justify-content: center;
 }
+header {
+  background-color: transparent;
+  padding: 11px 38px 11px 25px;
+  overflow: hidden;
+  height: 62px;
+}
 
 .country-section {
   width: 900px;
   max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .country-section .subheader {
   white-space: nowrap;
@@ -16,6 +25,28 @@
 
 .country-section .selected-country-text {
   color: #2e9bff;
+}
+
+.country-section .country-meta-data {
+  font-size: 18px;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+}
+
+.country-section .country-meta-data .datapoint {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: pre;
+}
+
+.country-section .country-meta-data .anticon {
+  margin: 0 4px 0 12px;
+}
+
+.country-section .country-meta-data .datapoint-value {
+  margin-right: 4px;
 }
 
 /* react-toastify custom css */
@@ -43,5 +74,12 @@
 @media only screen and (max-width: 600px) {
   .country-section .subheader {
     white-space: normal;
+  }
+  .country-section .country-meta-data {
+    font-size: 16px;
+    white-space: normal;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }

@@ -7,3 +7,7 @@
 .ant-dropdown-link {
   cursor: pointer;
 }
+
+.ant-dropdown-menu-item:hover {
+  background: #d4ebff;
+}

@@ -38,7 +38,7 @@ export const CountriesMasterList = [
   {
     location: "China",
     iso_code: "CHN",
-    coordinates: [-66.2124, 18.4004],
+    coordinates: [104.1954, 35.8617],
     population: 1392730000,
   },
   {
