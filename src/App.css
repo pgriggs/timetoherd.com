@@ -6,6 +6,14 @@
   justify-content: center;
 }
 
+.country-section {
+  width: 900px;
+  max-width: 100vw;
+}
+.country-section .subheader {
+  white-space: nowrap;
+}
+
 .country-section .selected-country-text {
   color: #2e9bff;
 }
@@ -23,8 +31,6 @@
 }
 
 .App-header {
-  width: 900px;
-  max-width: 100vw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -32,4 +38,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .country-section .subheader {
+    white-space: normal;
+  }
 }
