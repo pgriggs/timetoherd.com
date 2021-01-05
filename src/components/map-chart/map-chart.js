@@ -28,7 +28,9 @@ export const MapChart = ({
       });
     } else {
       toast(
-        "hmmm...Looks like we don't have enough data for " + NAME + " yet!"
+        "Looks like there isn't public vaccine data available for  " +
+          NAME +
+          " yet!"
       );
     }
   };

@@ -45,7 +45,7 @@ export const TimeToHerdCount = ({
     (listOfDatesAndVaccinations) => {
       let dataLength = listOfDatesAndVaccinations.length;
       let latestDaysNumbers = listOfDatesAndVaccinations[dataLength - 1];
-      if (dataLength > 1) {
+      if (dataLength > 3) {
         listOfDatesAndVaccinations.forEach((item, index) => {
           let dateDiffInMs = Math.abs(
             new Date(latestDaysNumbers.date) - new Date(item.date)
@@ -142,13 +142,11 @@ export const TimeToHerdCount = ({
     dailyMovingAverageAsPercentPopulation,
     percentPopulationVaccinated,
   ]);
-  console.log(percentPopulationVaccinated);
-  console.log(dailyMovingAverageAsPercentPopulation);
-  console.log(requestedDataAsPercent);
+
   return (
     <>
       {requestedDataAsPercent ? (
-        <CountUp end={requestedDataValue || 0} duration={1} decimals={2} />
+        <CountUp end={requestedDataValue || 0} duration={1} decimals={3} />
       ) : (
         <CountUp
           className="datapoint-value"

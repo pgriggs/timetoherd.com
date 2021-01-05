@@ -28,7 +28,7 @@ header {
 }
 
 .country-section .country-meta-data {
-  font-size: 18px;
+  font-size: 22px;
   white-space: nowrap;
   display: flex;
   flex-direction: row;
@@ -59,6 +59,10 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.Toastify__toast-body {
+  color: #0d0d0d;
 }
 
 .App-header {

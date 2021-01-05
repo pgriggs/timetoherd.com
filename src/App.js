@@ -6,6 +6,7 @@ import { CountryDropdown } from "./components/country-dropdown/country-dropdown.
 import { readRemoteFile } from "react-papaparse";
 import { MapChart } from "./components/map-chart/map-chart.js";
 import { ToastContainer, Slide } from "react-toastify";
+// import { CountriesTable } from "./components/countries-table/countries-table.js";
 import {
   SlidersTwoTone,
   HeartTwoTone,
@@ -113,6 +114,9 @@ export default function App() {
           />
           <ReactTooltip>{content}</ReactTooltip>
         </div>
+        {/* <div className="countries-table-section">
+          <CountriesTable allVaccineData={allVaccineData} />
+        </div> */}
       </div>
     </div>
   );
