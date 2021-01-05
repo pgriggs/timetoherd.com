@@ -56,7 +56,12 @@ export default function App() {
         transition={Slide}
         limit={5}
       />
-      <header></header>
+      <header>
+        <nav>
+          <a href="#suporters">Supporters</a>
+          <a href="#methodology">Methodology</a>
+        </nav>
+      </header>
       <div className="App-header">
         <div className="country-section">
           <div className="hero-container">
@@ -106,7 +111,6 @@ export default function App() {
               immunity
             </span>
           </p>
-          <br></br>
           <MapChart
             setTooltipContent={setContent}
             setSelectedCountry={setSelectedCountry}

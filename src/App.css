@@ -2,19 +2,53 @@
   text-align: center;
   background-color: #0d0d0d;
   width: 100vw;
+  height: 100vh;
   display: flex;
-  justify-content: center;
-}
-header {
-  background-color: transparent;
-  padding: 11px 38px 11px 25px;
-  overflow: hidden;
-  height: 62px;
+  flex-direction: column;
 }
 
+.App-header {
+  height: calc(100vh - 62px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  margin: auto;
+}
+
+header {
+  background-color: transparent;
+  padding: 11px 32px 11px 25px;
+  overflow: hidden;
+  min-height: 62px;
+}
+
+header nav {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  width: min-content;
+}
+
+header nav a:first-child {
+  margin-right: 16px;
+}
+
+header nav a {
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  line-height: 2.5em;
+  font-size: 16px;
+}
+.hero-container {
+  margin-bottom: 1em;
+}
 .country-section {
   width: 900px;
   max-width: 100vw;
+  height: calc(100vh - 62px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,6 +73,7 @@ header {
   justify-content: center;
   align-items: center;
   white-space: pre;
+  margin-right: 16px;
 }
 
 .country-section .country-meta-data .anticon {
@@ -65,17 +100,7 @@ header {
   color: #0d0d0d;
 }
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1195px) {
   .country-section .subheader {
     white-space: normal;
   }
@@ -85,5 +110,8 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+  .country-section .country-meta-data .datapoint {
+    margin-right: 0;
   }
 }
