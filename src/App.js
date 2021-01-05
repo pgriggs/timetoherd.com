@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import "./App.css";
 import { TimeToHerdCount } from "./components/united-states/united-states";
@@ -6,11 +7,14 @@ import { CountryDropdown } from "./components/country-dropdown/country-dropdown.
 import { readRemoteFile } from "react-papaparse";
 import { MapChart } from "./components/map-chart/map-chart.js";
 import { ToastContainer, Slide } from "react-toastify";
+import { Methodology } from "./components/methodology/methodology.js";
+import { Supporters } from "./components/supporters/supporters.js";
 // import { CountriesTable } from "./components/countries-table/countries-table.js";
 import {
-  SlidersTwoTone,
+  PieChartTwoTone,
   HeartTwoTone,
   CheckCircleTwoTone,
+  ArrowLeftOutlined,
 } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -48,80 +52,110 @@ export default function App() {
   }, [get_all_vaccine_data]);
 
   return (
-    <div className="App">
-      <ToastContainer
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={true}
-        transition={Slide}
-        limit={5}
-      />
-      <header>
-        <nav>
-          <a href="#suporters">Supporters</a>
-          <a href="#methodology">Methodology</a>
-        </nav>
-      </header>
-      <div className="App-header">
-        <div className="country-section">
-          <div className="hero-container">
-            <span className="time-to-heard-number">
-              <TimeToHerdCount
-                selectedCountry={selectedCountry}
-                allVaccineData={allVaccineData}
-                requestedData="timetoherd"
-                requestedDataAsPercent={false}
-              />
-            </span>
-            <span className="time-to-heard-unit">&nbsp;days</span>
-          </div>
-          <p className="subheader">
-            until herd immunity to Covid-19 is reached in the{" "}
-            <span className="selected-country-text">
-              <CountryDropdown
-                selectedCountry={selectedCountry}
-                setSelectedCountry={setSelectedCountry}
-              />
-            </span>
-          </p>
-          <p className="country-meta-data">
-            <span className="datapoint">
-              <CheckCircleTwoTone twoToneColor="#52c41a" />
-              <TimeToHerdCount
-                selectedCountry={selectedCountry}
-                allVaccineData={allVaccineData}
-                requestedData="percentPopulationVaccinated"
-                requestedDataAsPercent={true}
-              />{" "}
-              % of population vaccinated
-            </span>
-            <span className="datapoint">
-              <SlidersTwoTone />
-              <TimeToHerdCount
-                selectedCountry={selectedCountry}
-                allVaccineData={allVaccineData}
-                requestedData="dailyMovingAverageAsPercentPopulation"
-                requestedDataAsPercent={true}
-              />{" "}
-              % of population vaccinated daily (3-day MA)
-            </span>
-            <span className="datapoint">
-              <HeartTwoTone twoToneColor="#eb2f96" />
-              <span className="datapoint-value">70% </span>needed to reach herd
-              immunity
-            </span>
-          </p>
-          <MapChart
-            setTooltipContent={setContent}
-            setSelectedCountry={setSelectedCountry}
-            selectedCountry={selectedCountry}
-          />
-          <ReactTooltip>{content}</ReactTooltip>
-        </div>
-        {/* <div className="countries-table-section">
+    <Router>
+      <div className="App">
+        <ToastContainer
+          position="top-center"
+          autoClose={3000}
+          hideProgressBar={true}
+          transition={Slide}
+          limit={5}
+        />
+        <Switch>
+          <Route path="/supporters">
+            <header>
+              <Link to="/" style={{ color: "#fff", fontSize: "28px" }}>
+                <ArrowLeftOutlined />
+              </Link>
+              <nav>
+                <Link to="/supporters">Supporters</Link>
+                <Link to="/methodology">Methodology</Link>
+              </nav>
+            </header>
+            <Supporters />
+          </Route>
+          <Route path="/methodology">
+            <header>
+              <Link to="/" style={{ color: "#fff", fontSize: "28px" }}>
+                <ArrowLeftOutlined />
+              </Link>
+              <nav>
+                <Link to="/supporters">Supporters</Link>
+                <Link to="/methodology">Methodology</Link>
+              </nav>
+            </header>
+            <Methodology />
+          </Route>
+          <Route exact path="/">
+            <header>
+              <nav>
+                <Link to="/supporters">Supporters</Link>
+                <Link to="/methodology">Methodology</Link>
+              </nav>
+            </header>
+            <div className="App-header">
+              <div className="country-section">
+                <div className="hero-container">
+                  <span className="time-to-heard-number">
+                    <TimeToHerdCount
+                      selectedCountry={selectedCountry}
+                      allVaccineData={allVaccineData}
+                      requestedData="timetoherd"
+                      requestedDataAsPercent={false}
+                    />
+                  </span>
+                  <span className="time-to-heard-unit">&nbsp;days</span>
+                </div>
+                <p className="subheader">
+                  until herd immunity to Covid-19 is reached in the{" "}
+                  <span className="selected-country-text">
+                    <CountryDropdown
+                      selectedCountry={selectedCountry}
+                      setSelectedCountry={setSelectedCountry}
+                    />
+                  </span>
+                </p>
+                <p className="country-meta-data">
+                  <span className="datapoint">
+                    <CheckCircleTwoTone twoToneColor="#52c41a" />
+                    <TimeToHerdCount
+                      selectedCountry={selectedCountry}
+                      allVaccineData={allVaccineData}
+                      requestedData="percentPopulationVaccinated"
+                      requestedDataAsPercent={true}
+                    />{" "}
+                    % of population vaccinated
+                  </span>
+                  <span className="datapoint">
+                    <PieChartTwoTone />
+                    <TimeToHerdCount
+                      selectedCountry={selectedCountry}
+                      allVaccineData={allVaccineData}
+                      requestedData="dailyMovingAverageAsPercentPopulation"
+                      requestedDataAsPercent={true}
+                    />{" "}
+                    % of population vaccinated daily (3-day MA)
+                  </span>
+                  <span className="datapoint">
+                    <HeartTwoTone twoToneColor="#eb2f96" />
+                    <span className="datapoint-value">70% </span>needed to reach
+                    herd immunity
+                  </span>
+                </p>
+                <MapChart
+                  setTooltipContent={setContent}
+                  setSelectedCountry={setSelectedCountry}
+                  selectedCountry={selectedCountry}
+                />
+                <ReactTooltip>{content}</ReactTooltip>
+              </div>
+              {/* <div className="countries-table-section">
           <CountriesTable allVaccineData={allVaccineData} />
         </div> */}
+            </div>
+          </Route>
+        </Switch>
       </div>
-    </div>
+    </Router>
   );
 }

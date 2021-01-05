@@ -1,0 +1,39 @@
+.supporters-container {
+  color: #fff;
+  background: transparent;
+  border-radius: 8px;
+  border: 1px solid #fff;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  margin: 5em auto;
+}
+.supporter-link {
+  font-family: "Varela Round";
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+}
+.supporters-container .item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+  margin: 32px;
+}
+
+.supporters-container .item h2 {
+  color: #fff;
+  font-size: 2em;
+}
+
+.supporters-container .item span {
+  margin: 8px 0;
+  font-size: 16px;
+}
+.deepai-logo {
+  height: 100px;
+}

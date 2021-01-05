@@ -1,0 +1,28 @@
+.methodology-container {
+  color: #fff;
+  background: transparent;
+  border-radius: 8px;
+  border: 1px solid #fff;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 900px;
+  margin: 5em auto;
+}
+
+.methodology-container .item {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+.methodology-container .item h3 {
+  color: #fff;
+  font-size: 2em;
+}
+
+.methodology-container .item span {
+  margin: 8px 0;
+  font-size: 16px;
+}

@@ -45,7 +45,7 @@ export const TimeToHerdCount = ({
     (listOfDatesAndVaccinations) => {
       let dataLength = listOfDatesAndVaccinations.length;
       let latestDaysNumbers = listOfDatesAndVaccinations[dataLength - 1];
-      if (dataLength > 3) {
+      if (dataLength > 2) {
         listOfDatesAndVaccinations.forEach((item, index) => {
           let dateDiffInMs = Math.abs(
             new Date(latestDaysNumbers.date) - new Date(item.date)
