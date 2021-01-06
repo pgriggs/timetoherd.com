@@ -15,6 +15,7 @@ import {
   HeartTwoTone,
   CheckCircleTwoTone,
   ArrowLeftOutlined,
+  ExclamationCircleOutlined,
 } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -104,7 +105,17 @@ export default function App() {
                       requestedDataAsPercent={false}
                     />
                   </span>
-                  <span className="time-to-heard-unit">&nbsp;days</span>
+                  <span className="time-to-heard-unit">
+                    &nbsp;days{" "}
+                    <ExclamationCircleOutlined
+                      data-tip="Days = [(Population * 0.7) - (Vaccine Doses Delivered * 0.5)] / (Average Daily Vaccine Doses Given * 0.5) "
+                      style={{
+                        marginLeft: "-8px",
+                        fontSize: "14px",
+                        verticalAlign: "super",
+                      }}
+                    />
+                  </span>
                 </div>
                 <p className="subheader">
                   until herd immunity to Covid-19 is reached in the{" "}
@@ -125,6 +136,14 @@ export default function App() {
                       requestedDataAsPercent={true}
                     />{" "}
                     % of population vaccinated
+                    <ExclamationCircleOutlined
+                      data-tip="Percent Vaccinated = (Total Vaccine Doses Administered * 0.5) / Population"
+                      style={{
+                        marginLeft: "4px",
+                        fontSize: "12px",
+                        marginTop: "-12px",
+                      }}
+                    />
                   </span>
                   <span className="datapoint">
                     <PieChartTwoTone />
@@ -134,12 +153,28 @@ export default function App() {
                       requestedData="dailyMovingAverageAsPercentPopulation"
                       requestedDataAsPercent={true}
                     />{" "}
-                    % of population vaccinated daily (3-day MA)
+                    % of population receiving the vaccine daily
+                    <ExclamationCircleOutlined
+                      data-tip="Average Doses Administered Daily as a Percentage of Population = [[(Total Doses Delivered as of Most Recent Reporting Date - Total Doses Delivered as of Initial Reporting Date) * 0.5] / (Days Between Initial Reporting Date &amp; Most Recent Reporting Date] / Population)"
+                      style={{
+                        marginLeft: "4px",
+                        fontSize: "12px",
+                        marginTop: "-12px",
+                      }}
+                    />
                   </span>
                   <span className="datapoint">
                     <HeartTwoTone twoToneColor="#eb2f96" />
                     <span className="datapoint-value">70% </span>needed to reach
                     herd immunity
+                    <ExclamationCircleOutlined
+                      data-tip="The exact herd immunity threshold for Covid-19 is unkown. Infectious disease experts estimate it to be between 60-90%."
+                      style={{
+                        marginLeft: "4px",
+                        fontSize: "12px",
+                        marginTop: "-12px",
+                      }}
+                    />
                   </span>
                 </p>
                 <MapChart

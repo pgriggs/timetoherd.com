@@ -39,33 +39,61 @@ export const TimeToHerdCount = ({
     selectedCountry.iso_code,
     setherdImmunnityVaccinationThreshold,
     setPopulation,
+    selectedCountry,
   ]);
 
   const calculateVaccinationMA = useCallback(
     (listOfDatesAndVaccinations) => {
+      console.log(listOfDatesAndVaccinations);
       let dataLength = listOfDatesAndVaccinations.length;
       let latestDaysNumbers = listOfDatesAndVaccinations[dataLength - 1];
-      if (dataLength > 2) {
-        listOfDatesAndVaccinations.forEach((item, index) => {
-          let dateDiffInMs = Math.abs(
-            new Date(latestDaysNumbers.date) - new Date(item.date)
-          );
-          let dateDiffInDays = Math.floor(dateDiffInMs / (1000 * 3600 * 24));
-          if (dateDiffInDays === 3 || dateDiffInDays === 4) {
-            let movingAverage =
-              (latestDaysNumbers.total_vaccinations - item.total_vaccinations) /
-              dateDiffInDays;
-            setDailyVaccinationMA3day(movingAverage);
-            setDailyMovingAverageAsPercentPopulation(
-              (movingAverage / population) * 100
-            );
-          }
-        });
+      // if (dataLength > 1) {
+      //   listOfDatesAndVaccinations.forEach((item, index) => {
+      //     let dateDiffInMs = Math.abs(
+      //       new Date(latestDaysNumbers.date) - new Date(item.date)
+      //     );
+      //     let dateDiffInDays = Math.floor(dateDiffInMs / (1000 * 3600 * 24));
+      //     console.log(dateDiffInDays);
+      //     if (
+      //       (dateDiffInDays === 3 && item.total_vaccinations > 0) ||
+      //       (dateDiffInDays === 4 && item.total_vaccinations > 0)
+      //     ) {
+      //       let movingAverage =
+      //         (latestDaysNumbers.total_vaccinations - item.total_vaccinations) /
+      //         dateDiffInDays;
+      //       setDailyVaccinationMA3day(movingAverage);
+      //       setDailyMovingAverageAsPercentPopulation(
+      //         (movingAverage / population) * 100
+      //       );
+      //     }
+      //   });
+      if (dataLength > 1) {
+        let dateDiffInMs = Math.abs(
+          new Date(latestDaysNumbers.date) -
+            new Date(listOfDatesAndVaccinations[0].date)
+        );
+        let dateDiffInDays = Math.floor(dateDiffInMs / (1000 * 3600 * 24));
+        console.log(dateDiffInDays);
+        let movingAverage =
+          (latestDaysNumbers.total_vaccinations -
+            listOfDatesAndVaccinations[0].total_vaccinations) /
+          dateDiffInDays;
+        setDailyVaccinationMA3day(movingAverage);
+        setDailyMovingAverageAsPercentPopulation(
+          (movingAverage / population) * 100
+        );
       } else {
         setDailyVaccinationMA3day(latestDaysNumbers.total_vaccinations);
+        setDailyMovingAverageAsPercentPopulation(
+          (latestDaysNumbers.total_vaccinations / population) * 100
+        );
       }
     },
-    [population]
+    [
+      population,
+      setDailyVaccinationMA3day,
+      setDailyMovingAverageAsPercentPopulation,
+    ]
   );
 
   useEffect(() => {
@@ -80,7 +108,7 @@ export const TimeToHerdCount = ({
           ) {
             listOfDatesAndVaccinations.push({
               date: row[2],
-              total_vaccinations: row[3],
+              total_vaccinations: Number(row[3]),
             });
           }
         });
@@ -91,7 +119,7 @@ export const TimeToHerdCount = ({
         calculateVaccinationMA(listOfDatesAndVaccinations);
         setPercentPopulationVaccinated(
           listOfDatesAndVaccinations[dataLength - 1].total_vaccinations /
-            population
+            (population * 2)
         );
       }
     };
@@ -101,17 +129,39 @@ export const TimeToHerdCount = ({
     selectedCountry.iso_code,
     calculateVaccinationMA,
     population,
+    selectedCountry,
   ]);
 
-  const daysToHerdPlaceholder = Math.round(
-    (herdImmunnityVaccinationThreshold - immunePopulation) /
-      dailyVaccinationMA3day
-  );
+  const calcDaysToHerd = (
+    herdImmunnityVaccinationThreshold,
+    immunePopulation,
+    dailyVaccinationMA3day
+  ) => {
+    console.log("threshold " + herdImmunnityVaccinationThreshold);
+    let daysRounded = Math.round(
+      (herdImmunnityVaccinationThreshold - immunePopulation) /
+        dailyVaccinationMA3day
+    );
+    console.log(
+      "numerator " + (herdImmunnityVaccinationThreshold - immunePopulation)
+    );
+    console.log("denominator " + dailyVaccinationMA3day);
+    return daysRounded;
+  };
 
-  daysToHerdPlaceholder.toLocaleString("en");
   useEffect(() => {
+    let daysToHerdPlaceholder = calcDaysToHerd(
+      herdImmunnityVaccinationThreshold,
+      immunePopulation,
+      dailyVaccinationMA3day
+    );
     setDaysToHerd(daysToHerdPlaceholder);
-  }, [dailyVaccinationMA3day, daysToHerdPlaceholder]);
+  }, [
+    dailyVaccinationMA3day,
+    herdImmunnityVaccinationThreshold,
+    immunePopulation,
+    selectedCountry,
+  ]);
 
   useEffect(() => {
     if (requestedData === "timetoherd") {
@@ -141,7 +191,13 @@ export const TimeToHerdCount = ({
     herdImmunnityVaccinationThreshold,
     dailyMovingAverageAsPercentPopulation,
     percentPopulationVaccinated,
+    selectedCountry,
   ]);
+
+  console.log("daily av: " + dailyVaccinationMA3day);
+  console.log("daily av percent: " + dailyMovingAverageAsPercentPopulation);
+  console.log("pop " + population);
+  console.log("immune pop:" + immunePopulation);
 
   return (
     <>

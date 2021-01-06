@@ -17,9 +17,6 @@ export const Supporters = () => {
               @PeterGriggs
             </a>
           </span>
-        </div>
-        <div className="item">
-          <h2>Funded By:</h2>
           <span>
             <a href="https://deepai.org" target="_blank">
               <img
