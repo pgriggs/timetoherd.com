@@ -9,6 +9,7 @@
   align-items: flex-start;
   max-width: 900px;
   margin: 5em auto;
+  min-height: min-content;
 }
 
 .methodology-container .item {

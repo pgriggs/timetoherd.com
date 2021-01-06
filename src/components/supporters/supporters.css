@@ -9,6 +9,7 @@
   align-items: center;
   max-width: 900px;
   margin: 5em auto;
+  min-height: min-content;
 }
 .supporter-link {
   font-family: "Varela Round";

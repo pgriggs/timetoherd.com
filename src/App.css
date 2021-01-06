@@ -3,6 +3,7 @@
   background-color: #0d0d0d;
   width: 100vw;
   height: 100vh;
+  max-height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -20,6 +21,7 @@
 
 h1 {
   color: #fff !important;
+  margin: 0.5em 0;
 }
 
 .dummy-h1 {
@@ -115,7 +117,7 @@ header nav a {
 }
 
 .__react_component_tooltip {
-  width: 300px;
+  max-width: 300px;
 }
 
 @media only screen and (max-width: 1280px) {
@@ -142,5 +144,9 @@ header nav a {
 @media only screen and (max-width: 600px) {
   .country-section .country-meta-data {
     font-size: 16px;
+  }
+  .supporters-container,
+  .methodology-container {
+    margin: 2em auto;
   }
 }
