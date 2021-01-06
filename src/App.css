@@ -72,6 +72,12 @@ header nav a {
   margin-bottom: 1.5em;
 }
 
+.country-section .asterisk {
+  font-size: 14px;
+  margin-top: -48px;
+  margin-bottom: 24px;
+}
+
 .country-section .selected-country-text {
   color: #2e9bff;
 }
@@ -141,6 +147,12 @@ header nav a {
   }
 }
 
+@media only screen and (max-width: 900px) {
+  .country-section .asterisk {
+    margin-top: -40px;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .country-section .country-meta-data {
     font-size: 16px;
@@ -148,5 +160,8 @@ header nav a {
   .supporters-container,
   .methodology-container {
     margin: 2em auto;
+  }
+  .country-section .asterisk {
+    margin-top: -18px;
   }
 }

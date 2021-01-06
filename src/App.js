@@ -127,6 +127,9 @@ export default function App() {
                     />
                   </span>
                 </p>
+                <span className="asterisk">
+                  *at current daily vaccination rates
+                </span>
                 <p className="country-meta-data">
                   <span className="datapoint">
                     <CheckCircleTwoTone twoToneColor="#52c41a" />

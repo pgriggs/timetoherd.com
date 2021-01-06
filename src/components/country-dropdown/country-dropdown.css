@@ -6,6 +6,7 @@
 
 .ant-dropdown-link {
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .ant-dropdown-menu-item:hover {
