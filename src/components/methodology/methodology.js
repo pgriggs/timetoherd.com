@@ -77,6 +77,18 @@ export const Methodology = () => {
             frequently infection results in immunity.
           </span>
         </div>
+        <div className="item">
+          <h3>Open Datasets</h3>
+          <span>
+            <b>Vaccine Data per Country: </b>
+            <a
+              target="_blank"
+              href="https://github.com/owid/covid-19-data/tree/master/public/data/vaccinations"
+            >
+              https://github.com/owid/covid-19-data/tree/master/public/data/vaccinations
+            </a>
+          </span>
+        </div>
       </div>
     </>
   );

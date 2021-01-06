@@ -5,6 +5,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 }
 
 .App-header {
@@ -18,7 +19,13 @@
 }
 
 h1 {
-  color: #fff;
+  color: #fff !important;
+}
+
+.dummy-h1 {
+  display: INLINE;
+  font-weight: inherit;
+  font-size: inherit;
 }
 
 header {

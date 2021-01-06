@@ -118,7 +118,8 @@ export default function App() {
                   </span>
                 </div>
                 <p className="subheader">
-                  until herd immunity to Covid-19 is reached in the{" "}
+                  until <h1 className="dummy-h1">herd immunity to Covid-19</h1>{" "}
+                  is reached in the{" "}
                   <span className="selected-country-text">
                     <CountryDropdown
                       selectedCountry={selectedCountry}

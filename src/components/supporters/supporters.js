@@ -38,6 +38,15 @@ export const Supporters = () => {
               ></img>
             </a>
           </span>
+          <span>
+            <a
+              className="supporter-link"
+              target="_blank"
+              href="https://github.com/owid/covid-19-data/tree/master/public/data/vaccinations"
+            >
+              View data used by TimeToHerd
+            </a>
+          </span>
         </div>
       </div>
     </>
