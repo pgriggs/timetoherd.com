@@ -15,7 +15,7 @@ export const TimeToHerdCount = ({
   ] = useState(); // multipley by 2 to account for two-shot vaccinations
   const [dailyVaccinationMA3day, setDailyVaccinationMA3day] = useState();
   const [daysToHerd, setDaysToHerd] = useState();
-  const [immunePopulation, setImmunePopulation] = useState();
+  const [vaccineDosesDelivered, setVaccineDosesDelivered] = useState();
   const [requestedDataValue, setRequestedDataValue] = useState();
   const [
     percentPopulationVaccinated,
@@ -113,7 +113,7 @@ export const TimeToHerdCount = ({
           }
         });
         let dataLength = listOfDatesAndVaccinations.length;
-        setImmunePopulation(
+        setVaccineDosesDelivered(
           listOfDatesAndVaccinations[dataLength - 1].total_vaccinations
         );
         calculateVaccinationMA(listOfDatesAndVaccinations);
@@ -134,16 +134,16 @@ export const TimeToHerdCount = ({
 
   const calcDaysToHerd = (
     herdImmunnityVaccinationThreshold,
-    immunePopulation,
+    vaccineDosesDelivered,
     dailyVaccinationMA3day
   ) => {
     console.log("threshold " + herdImmunnityVaccinationThreshold);
     let daysRounded = Math.round(
-      (herdImmunnityVaccinationThreshold - immunePopulation) /
+      (herdImmunnityVaccinationThreshold - vaccineDosesDelivered) /
         dailyVaccinationMA3day
     );
     console.log(
-      "numerator " + (herdImmunnityVaccinationThreshold - immunePopulation)
+      "numerator " + (herdImmunnityVaccinationThreshold - vaccineDosesDelivered)
     );
     console.log("denominator " + dailyVaccinationMA3day);
     return daysRounded;
@@ -152,14 +152,14 @@ export const TimeToHerdCount = ({
   useEffect(() => {
     let daysToHerdPlaceholder = calcDaysToHerd(
       herdImmunnityVaccinationThreshold,
-      immunePopulation,
+      vaccineDosesDelivered,
       dailyVaccinationMA3day
     );
     setDaysToHerd(daysToHerdPlaceholder);
   }, [
     dailyVaccinationMA3day,
     herdImmunnityVaccinationThreshold,
-    immunePopulation,
+    vaccineDosesDelivered,
     selectedCountry,
   ]);
 
@@ -167,8 +167,8 @@ export const TimeToHerdCount = ({
     if (requestedData === "timetoherd") {
       setRequestedDataValue(daysToHerd);
     }
-    if (requestedData === "immunepopulation") {
-      setRequestedDataValue(immunePopulation);
+    if (requestedData === "vaccineDosesDelivered") {
+      setRequestedDataValue(vaccineDosesDelivered);
     }
     if (requestedData === "dailyVaccinationMA3day") {
       setRequestedDataValue(dailyVaccinationMA3day);
@@ -185,7 +185,7 @@ export const TimeToHerdCount = ({
   }, [
     setRequestedDataValue,
     requestedData,
-    immunePopulation,
+    vaccineDosesDelivered,
     daysToHerd,
     dailyVaccinationMA3day,
     herdImmunnityVaccinationThreshold,
@@ -193,11 +193,6 @@ export const TimeToHerdCount = ({
     percentPopulationVaccinated,
     selectedCountry,
   ]);
-
-  console.log("daily av: " + dailyVaccinationMA3day);
-  console.log("daily av percent: " + dailyMovingAverageAsPercentPopulation);
-  console.log("pop " + population);
-  console.log("immune pop:" + immunePopulation);
 
   return (
     <>
@@ -214,7 +209,7 @@ export const TimeToHerdCount = ({
   );
 };
 
-// <span>Vaccinations given: {immunePopulation}</span>
+// <span>Vaccinations given: {vaccineDosesDelivered}</span>
 // <br></br>
 // <span>Herd Populations Threshold: {herdImmunityPopulationThreshold}</span>
 // <br></br>
