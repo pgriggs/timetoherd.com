@@ -7,7 +7,7 @@ export const Supporters = () => {
       <h1>Project Support</h1>
       <div className="supporters-container">
         <div className="item">
-          <h2>Developed By:</h2>
+          <h2>Built by:</h2>
           <span>
             <a
               className="supporter-link"
@@ -28,7 +28,7 @@ export const Supporters = () => {
           </span>
         </div>
         <div className="item">
-          <h2>Open Data From:</h2>
+          <h2>Open data from:</h2>
           <span>
             <a href="https://ourworldindata.org/" target="_blank">
               <img
@@ -45,6 +45,18 @@ export const Supporters = () => {
               href="https://github.com/owid/covid-19-data/tree/master/public/data/vaccinations"
             >
               View data used by TimeToHerd
+            </a>
+          </span>
+        </div>
+        <div className="item">
+          <h2>Github contributors:</h2>
+          <span>
+            <a
+              className="supporter-link"
+              href="https://github.com/bdunks"
+              target="_blank"
+            >
+              @dbunks
             </a>
           </span>
         </div>
