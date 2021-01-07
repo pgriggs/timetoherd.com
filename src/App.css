@@ -64,7 +64,7 @@ header nav a {
 .country-section {
   width: 900px;
   max-width: 100vw;
-  height: calc(100vh - 62px);
+  height: calc(100vh - 68px);
   display: flex;
   flex-direction: column;
   align-items: center;
