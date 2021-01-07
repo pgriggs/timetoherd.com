@@ -64,16 +64,18 @@ export const TimeToHerdCount = ({
       const mostRecentCountryData = countryData[countryData.length - 1];
 
       // Get most recent fields for calculations
-      const dailyRate = mostRecentCountryData[dailyVaccinationsIdx] ?? 0;
+      // Set values for display
+      let dailyRate = mostRecentCountryData[dailyVaccinationsIdx] ?? 0;
+
+      if (countryData.length === 1) {
+        dailyRate = mostRecentCountryData[totalVaccinationsIdx];
+      }
+
       const totalVaccinations = mostRecentCountryData[totalVaccinationsIdx];
 
       // Set values for display
-      if (countryData.length > 1) {
-        setDailyVaccinationRate(dailyRate);
-      } else {
-        setDailyVaccinationRate(totalVaccinations);
-      }
 
+      setDailyVaccinationRate(dailyRate);
       setDailyVaccinationRateAsPercentPopulation(
         (dailyRate / population) * 100
       );
