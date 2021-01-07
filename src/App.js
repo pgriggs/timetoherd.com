@@ -123,7 +123,7 @@ export default function App() {
                 </div>
                 <p className="subheader">
                   until <h1 className="dummy-h1">herd immunity to Covid-19</h1>{" "}
-                  is reached in the{" "}
+                  is reached in{" "}
                   <span className="selected-country-text">
                     <CountryDropdown
                       selectedCountry={selectedCountry}
