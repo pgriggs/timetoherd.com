@@ -222,12 +222,6 @@ export const CountriesMasterList = [
     population: 46723749,
   },
   {
-    location: "United Arab Emirates	",
-    iso_code: "ARE",
-    coordinates: [53.8478, 23.4241],
-    population: 9630959,
-  },
-  {
     location: "United Kingdom",
     iso_code: "GBR",
     coordinates: [-3.436, 55.3781],
