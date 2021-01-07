@@ -23,8 +23,8 @@ export const TimeToHerdCount = ({
   ] = useState();
   const [population, setPopulation] = useState();
   const [
-    dailyMovingAverageAsPercentPopulation,
-    setDailyMovingAverageAsPercentPopulation,
+    dailyVaccinationRateAsPercentPopulation,
+    setDailyVaccinationRateAsPercentPopulation,
   ] = useState();
   //   const [vaccinationsListByDate, setVaccinationsListByDate] = useState();
 
@@ -60,7 +60,7 @@ export const TimeToHerdCount = ({
 
       // Set values for display
       setDailyVaccinationRate(dailyRate);
-      setDailyMovingAverageAsPercentPopulation((dailyRate / population) * 100);
+      setDailyVaccinationRateAsPercentPopulation((dailyRate / population) * 100);
       setVaccineDosesDelivered(totalVaccinations);
       setPercentPopulationVaccinated(totalVaccinations / (population * 2));
     };
@@ -123,8 +123,8 @@ export const TimeToHerdCount = ({
     if (requestedData === "percentPopulationVaccinated") {
       setRequestedDataValue(percentPopulationVaccinated * 100);
     }
-    if (requestedData === "dailyMovingAverageAsPercentPopulation") {
-      setRequestedDataValue(dailyMovingAverageAsPercentPopulation);
+    if (requestedData === "dailyVaccinationRateAsPercentPopulation") {
+      setRequestedDataValue(dailyVaccinationRateAsPercentPopulation);
     }
   }, [
     setRequestedDataValue,
@@ -133,7 +133,7 @@ export const TimeToHerdCount = ({
     daysToHerd,
     dailyVaccinationRate,
     herdImmunityVaccinationThreshold,
-    dailyMovingAverageAsPercentPopulation,
+    dailyVaccinationRateAsPercentPopulation,
     percentPopulationVaccinated,
     selectedCountry,
   ]);
