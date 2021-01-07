@@ -204,18 +204,6 @@ export const CountriesMasterList = [
     population: 33699947,
   },
   {
-    location: "Slovakia",
-    iso_code: "SVK",
-    coordinates: [19.699, 48.669],
-    population: 5447011,
-  },
-  {
-    location: "Slovenia",
-    iso_code: "SVN",
-    coordinates: [14.9955, 46.1512],
-    population: 2067372,
-  },
-  {
     location: "Spain",
     iso_code: "ESP",
     coordinates: [-3.7492, 40.4637],
