@@ -16,6 +16,7 @@
   display: flex;
   flex-direction: column;
   color: #fff;
+  width: 100%;
 }
 
 .methodology-container .item h3 {
@@ -30,6 +31,6 @@
 }
 @media only screen and (max-width: 600px) {
   .methodology-container {
-    margin: 2em auto;
+    margin: 2em 18px;
   }
 }

@@ -173,15 +173,8 @@ header nav a {
   header nav a {
     font-size: 12px;
   }
-  .social-button {
-    font-size: 12px;
-  }
   .country-section .country-meta-data {
     font-size: 16px;
-  }
-  .supporters-container,
-  .methodology-container {
-    margin: 2em auto;
   }
   .country-section .asterisk {
     margin-top: -18px;

@@ -89,6 +89,15 @@ export const Methodology = () => {
             </a>
           </span>
         </div>
+        <div className="item">
+          <h3>Project Code</h3>
+          <span>
+            <b>Github repo for timetoherd.com: </b>
+            <a target="_blank" href="https://github.com/pgriggs/timetoherd.com">
+              https://github.com/pgriggs/timetoherd.com
+            </a>
+          </span>
+        </div>
       </div>
     </>
   );

@@ -38,3 +38,9 @@
 .deepai-logo {
   height: 100px;
 }
+
+@media only screen and (max-width: 600px) {
+  .supporters-container {
+    margin: 2em 18px;
+  }
+}
