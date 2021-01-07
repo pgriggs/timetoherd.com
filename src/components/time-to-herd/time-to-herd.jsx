@@ -46,12 +46,20 @@ export const TimeToHerdCount = ({
     const parseVaccineData = (allVaccineData) => {
       // Source data heading locations dynamically as the source add columns from time to time
       const dataHeadings = allVaccineData[0];
-      const isoCodeIdx = dataHeadings.findIndex(heading => heading === "iso_code");
-      const dailyVaccinationsIdx = dataHeadings.findIndex(heading => heading === "daily_vaccinations");
-      const totalVaccinationsIdx = dataHeadings.findIndex(heading => heading === "total_vaccinations");
+      const isoCodeIdx = dataHeadings.findIndex(
+        (heading) => heading === "iso_code"
+      );
+      const dailyVaccinationsIdx = dataHeadings.findIndex(
+        (heading) => heading === "daily_vaccinations"
+      );
+      const totalVaccinationsIdx = dataHeadings.findIndex(
+        (heading) => heading === "total_vaccinations"
+      );
 
       // Get most recent data from selected country
-      const countryData = allVaccineData.filter(data => data[isoCodeIdx] === selectedCountry.iso_code);
+      const countryData = allVaccineData.filter(
+        (data) => data[isoCodeIdx] === selectedCountry.iso_code
+      );
       const mostRecentCountryData = countryData[countryData.length - 1];
 
       // Get most recent fields for calculations
@@ -60,21 +68,18 @@ export const TimeToHerdCount = ({
 
       // Set values for display
       setDailyVaccinationRate(dailyRate);
-      setDailyVaccinationRateAsPercentPopulation((dailyRate / population) * 100);
+      setDailyVaccinationRateAsPercentPopulation(
+        (dailyRate / population) * 100
+      );
       setVaccineDosesDelivered(totalVaccinations);
       setPercentPopulationVaccinated(totalVaccinations / (population * 2));
     };
 
     // Only parse after vaccination data has been retrieved
-    if(allVaccineData.length > 0) {
+    if (allVaccineData.length > 0) {
       parseVaccineData(allVaccineData);
     }
-  }, [
-    allVaccineData,
-    selectedCountry.iso_code,
-    population,
-    selectedCountry,
-  ]);
+  }, [allVaccineData, selectedCountry.iso_code, population, selectedCountry]);
 
   const calcDaysToHerd = (
     herdImmunnityVaccinationThreshold,
@@ -86,10 +91,7 @@ export const TimeToHerdCount = ({
       (herdImmunnityVaccinationThreshold - vaccineDosesDelivered) /
         dailyVaccinationRate
     );
-    console.log(
-      "numerator " + (herdImmunnityVaccinationThreshold - vaccineDosesDelivered)
-    );
-    console.log("denominator " + dailyVaccinationRate);
+
     return daysRounded;
   };
 

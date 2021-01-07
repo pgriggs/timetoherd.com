@@ -158,7 +158,7 @@ export default function App() {
                     <TimeToHerdCount
                       selectedCountry={selectedCountry}
                       allVaccineData={allVaccineData}
-                      requestedData="dailyMovingAverageAsPercentPopulation"
+                      requestedData="dailyVaccinationRateAsPercentPopulation"
                       requestedDataAsPercent={true}
                     />{" "}
                     % of population receiving the vaccine daily
