@@ -2,13 +2,14 @@ import React, { useState, useCallback, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import "./App.css";
-import { TimeToHerdCount } from "./components/united-states/united-states";
+import { TimeToHerdCount } from "./components/time-to-herd/time-to-herd";
 import { CountryDropdown } from "./components/country-dropdown/country-dropdown.js";
 import { readRemoteFile } from "react-papaparse";
 import { MapChart } from "./components/map-chart/map-chart.js";
 import { ToastContainer, Slide } from "react-toastify";
 import { Methodology } from "./components/methodology/methodology.js";
 import { Supporters } from "./components/supporters/supporters.js";
+import { SocialSharingButton } from "./components/social-sharing/social-sharing-button.js";
 // import { CountriesTable } from "./components/countries-table/countries-table.js";
 import {
   PieChartTwoTone,
@@ -71,6 +72,7 @@ export default function App() {
               <nav>
                 <Link to="/supporters">Supporters</Link>
                 <Link to="/methodology">Methodology</Link>
+                <SocialSharingButton />
               </nav>
             </header>
             <Supporters />
@@ -83,6 +85,7 @@ export default function App() {
               <nav>
                 <Link to="/supporters">Supporters</Link>
                 <Link to="/methodology">Methodology</Link>
+                <SocialSharingButton />
               </nav>
             </header>
             <Methodology />
@@ -92,6 +95,7 @@ export default function App() {
               <nav>
                 <Link to="/supporters">Supporters</Link>
                 <Link to="/methodology">Methodology</Link>
+                <SocialSharingButton />
               </nav>
             </header>
             <div className="App-header">
@@ -186,6 +190,13 @@ export default function App() {
                   setSelectedCountry={setSelectedCountry}
                   selectedCountry={selectedCountry}
                 />
+                <a
+                  className="amzn-link"
+                  target="_blank"
+                  href="https://www.amazon.com/gp/search?ie=UTF8&tag=timetoherd-20&linkCode=ur2&linkId=dbaafa6eec05baa8aaf6d35592380e6f&camp=1789&creative=9325&index=aps&keywords=face mask"
+                >
+                  Need a face mask?
+                </a>
                 <ReactTooltip>{content}</ReactTooltip>
               </div>
               {/* <div className="countries-table-section">

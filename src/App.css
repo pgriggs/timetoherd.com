@@ -32,9 +32,9 @@ h1 {
 
 header {
   background-color: transparent;
-  padding: 11px 32px 11px 25px;
+  padding: 12px 32px;
   overflow: hidden;
-  min-height: 62px;
+  min-height: 68px;
   display: flex;
   align-items: center;
 }
@@ -46,7 +46,8 @@ header nav {
   width: min-content;
 }
 
-header nav a:first-child {
+header nav a:first-child,
+header nav a:nth-child(2) {
   margin-right: 16px;
 }
 
@@ -56,6 +57,8 @@ header nav a {
   cursor: pointer;
   line-height: 2.5em;
   font-size: 16px;
+  display: flex;
+  align-items: center;
 }
 
 .country-section {
@@ -106,6 +109,16 @@ header nav a {
   margin-right: 4px;
 }
 
+.country-section .amzn-link {
+  font-size: 18px;
+  color: #fff;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.country-section .amzn-link:hover {
+  color: #40a9ff;
+}
 /* react-toastify custom css */
 .Toastify__toast {
   border-radius: 4px;
@@ -154,6 +167,15 @@ header nav a {
 }
 
 @media only screen and (max-width: 600px) {
+  header {
+    padding: 11px 18px;
+  }
+  header nav a {
+    font-size: 12px;
+  }
+  .social-button {
+    font-size: 12px;
+  }
   .country-section .country-meta-data {
     font-size: 16px;
   }

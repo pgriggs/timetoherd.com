@@ -1,0 +1,50 @@
+.social-button-container {
+  display: flex;
+  flex-direction: row;
+  margin: 50px 0;
+  width: 100%;
+}
+.react-share__ShareButton {
+  display: flex;
+  margin: 0 auto;
+  outline: none;
+}
+.social-button {
+  padding: 0 36px;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  line-height: 2.5em;
+  font-size: 16px;
+  border: 1px solid #fff;
+  background: transparent;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: color 0.3s, border 0.3s;
+  outline: none;
+}
+.social-button:hover {
+  color: #40a9ff;
+  border: 1px solid #40a9ff;
+}
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.65) !important;
+}
+.ReactModal__Content {
+  max-width: 350px;
+  max-height: 250px;
+  margin: auto;
+  border: none !important;
+  border-radius: 8px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .social-button {
+    font-size: 12px;
+  }
+}
