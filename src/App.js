@@ -115,7 +115,7 @@ export default function App() {
                       data-tip="Days = [(Population * 0.7) - (Vaccine Doses Delivered * 0.5)] / (Average Daily Vaccine Doses Given * 0.5) "
                       style={{
                         marginLeft: "-8px",
-                        fontSize: "14px",
+                        fontSize: "16px",
                         verticalAlign: "super",
                       }}
                     />
@@ -148,7 +148,7 @@ export default function App() {
                       data-tip="Percent Vaccinated = (Total Vaccine Doses Administered * 0.5) / Population"
                       style={{
                         marginLeft: "4px",
-                        fontSize: "12px",
+                        fontSize: "14px",
                         marginTop: "-12px",
                       }}
                     />
@@ -166,7 +166,7 @@ export default function App() {
                       data-tip="Average Doses Administered Daily as a Percentage of Population = [[(Total Doses Delivered as of Most Recent Reporting Date - Total Doses Delivered as of Initial Reporting Date) * 0.5] / (Days Between Initial Reporting Date &amp; Most Recent Reporting Date] / Population)"
                       style={{
                         marginLeft: "4px",
-                        fontSize: "12px",
+                        fontSize: "14px",
                         marginTop: "-12px",
                       }}
                     />
@@ -179,7 +179,7 @@ export default function App() {
                       data-tip="The exact herd immunity threshold for Covid-19 is unkown. Infectious disease experts estimate it to be between 60-90%."
                       style={{
                         marginLeft: "4px",
-                        fontSize: "12px",
+                        fontSize: "14px",
                         marginTop: "-12px",
                       }}
                     />
