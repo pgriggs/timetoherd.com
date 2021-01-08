@@ -48,8 +48,17 @@ export const Methodology = () => {
         <div className="item">
           <h3>Assumptions</h3>
           <span>
-            <b>Herd Immunity Threshold for Covid-19:</b> We assume immunity in a
-            given 70% of the population is sufficient to reach herd immunity.{" "}
+            <b>Herd Immunity for Covid-19:</b> We assume it is possible for a
+            population to reach a state of herd immunnity for Covid-19 through
+            vaccinations.
+          </span>
+          <span>
+            <b>Herd Immunity Threshold for Covid-19:</b> We assume immunity from
+            vaccination in a given 70% of the population is the minimum possible
+            to reach herd immunity. We provide the ability to toggle this
+            threshold up to 95% to account for variations in R values for
+            variants of Covid-19 and varying estimates by infectious disease
+            experts.{" "}
             <a
               target="_blank"
               href="https://www.nytimes.com/2020/12/24/health/herd-immunity-covid-coronavirus.html"
@@ -69,9 +78,14 @@ export const Methodology = () => {
           </span>
           <span>
             <b>Immunity from Covid-19 Infection:</b> We do not include confirmed
-            Covid-19 cases in our project of time to herd immunity because it is
+            Covid-19 cases in our project of time to herd immunity. It is
             unknown if Covid-19 infection gives immunity, and if yes, how
-            frequently infection results in immunity.
+            frequently infection results in immunity. Furthermore, the vaccine
+            data does not state whether the person vaccinated was previsouly
+            infected. Additionally, the CDC recommends vaccinations even for
+            those who were confirmed to have been infected with Covid-19 in the
+            past. For these reasons, we've decided to focus on the time for a
+            population to reach herd immunity through vaccination.
           </span>
         </div>
         <div className="item">
