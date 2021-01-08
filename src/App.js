@@ -193,9 +193,17 @@ export default function App() {
                         min={70}
                         max={95}
                         value={herdImmunityThresholdPercentage}
-                        onChange={(valueAsNumber) =>
-                          setHerdImmunityThresholdPercentage(valueAsNumber)
-                        }
+                        onChange={(valueAsNumber) => {
+                          if (
+                            valueAsNumber === NaN ||
+                            valueAsNumber > 95 ||
+                            valueAsNumber < 70
+                          ) {
+                            setHerdImmunityThresholdPercentage(70);
+                          } else {
+                            setHerdImmunityThresholdPercentage(valueAsNumber);
+                          }
+                        }}
                         format={(valueAsNumber) => valueAsNumber + "%"}
                       />{" "}
                     </span>
