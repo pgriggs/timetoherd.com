@@ -150,6 +150,7 @@ header nav a {
   border: none !important;
   padding: 0 !important;
   pointer-events: none;
+  touch-action: none;
 }
 .react-numeric-input b {
   background: transparent;
