@@ -150,6 +150,7 @@ header nav a {
   border: none !important;
   padding: 0 !important;
   pointer-events: none;
+  text-align: left !important;
 }
 .react-numeric-input b {
   background: transparent;
@@ -215,5 +216,18 @@ header nav a {
   }
   .country-section .asterisk {
     margin-top: -18px;
+  }
+  .react-numeric-input {
+    margin-right: 8px;
+  }
+  .react-numeric-input input {
+    width: 100px;
+  }
+  .react-numeric-input b {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .react-numeric-input b i {
+    background-color: rgba(255, 255, 255, 0.7);
   }
 }
