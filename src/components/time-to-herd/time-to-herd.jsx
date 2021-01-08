@@ -8,6 +8,7 @@ export const TimeToHerdCount = ({
   allVaccineData,
   requestedData,
   requestedDataAsPercent,
+  herdImmunityThresholdPercentage,
 }) => {
   const [
     herdImmunityVaccinationThreshold,
@@ -34,12 +35,15 @@ export const TimeToHerdCount = ({
     });
     // setHerdImmunityPopulationThreshold(thisCountry.population * 0.7);
     setPopulation(thisCountry.population);
-    setHerdImmunityVaccinationThreshold(thisCountry.population * 1.4);
+    setHerdImmunityVaccinationThreshold(
+      thisCountry.population * 2 * (herdImmunityThresholdPercentage / 100)
+    );
   }, [
     selectedCountry.iso_code,
     setHerdImmunityVaccinationThreshold,
     setPopulation,
     selectedCountry,
+    herdImmunityThresholdPercentage,
   ]);
 
   useEffect(() => {

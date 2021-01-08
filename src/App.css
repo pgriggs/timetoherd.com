@@ -106,7 +106,7 @@ header nav a {
 }
 
 .country-section .country-meta-data .datapoint-value {
-  margin-right: 4px;
+  margin-right: -8px;
 }
 
 .country-section .amzn-link {
@@ -119,6 +119,7 @@ header nav a {
 .country-section .amzn-link:hover {
   color: #40a9ff;
 }
+
 /* react-toastify custom css */
 .Toastify__toast {
   border-radius: 4px;
@@ -135,8 +136,44 @@ header nav a {
   color: #0d0d0d;
 }
 
+/* reaect tooltip custom css */
 .__react_component_tooltip {
   max-width: 300px;
+}
+
+/* react numeric input custom css */
+
+.react-numeric-input input {
+  outline: none;
+  width: 70px;
+  background: transparent;
+  border: none !important;
+  padding: 0 !important;
+  pointer-events: none;
+}
+.react-numeric-input b {
+  background: transparent;
+  border: none !important;
+  cursor: pointer;
+  box-shadow: none !important;
+}
+.react-numeric-input b:first-of-type {
+  top: 6px !important;
+}
+
+.react-numeric-input b i {
+  border-color: transparent transparent rgba(255, 255, 255, 1) !important;
+  border-width: 0px 0.5ex 0.5ex !important;
+  cursor: pointer;
+}
+
+.react-numeric-input b + b {
+  bottom: 0px !important;
+}
+
+.react-numeric-input b + b i {
+  border-color: rgba(255, 255, 255, 1) transparent transparent !important;
+  border-width: 0.5ex 0.5ex 0px !important;
 }
 
 @media only screen and (max-width: 1280px) {

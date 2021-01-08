@@ -32,10 +32,7 @@ export const Methodology = () => {
           <span>
             <b>Percentage of population receiving the vaccine daily: </b>
             Average Doses Administered Daily as a Percentage of Population =
-            [[(Total Doses Delivered as of Most Recent Reporting Date - Total
-            Doses Delivered as of Initial Reporting Date) * 0.5] / (Days Between
-            Initial Reporting Date &amp; Most Recent Reporting Date] /
-            Population)
+            (7-Day Moving Average of Daily Doses Delivered / Population) * 100
           </span>
           <span>
             <b>Percentage of Population Vaccinated: </b>
@@ -65,7 +62,7 @@ export const Methodology = () => {
           </span>
           <span>
             <b>Vaccination Dosage numbers published per country:</b> We assume
-            each vaccine does administered equals one person is immune. We then
+            each vaccine dose administered equals one person is immune. We then
             account for the fact that each person requires two doses of the
             vaccine for immunity by multiplying the total doses delivered to
             date by 0.5.

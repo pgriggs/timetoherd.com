@@ -10,6 +10,7 @@ import { ToastContainer, Slide } from "react-toastify";
 import { Methodology } from "./components/methodology/methodology.js";
 import { Supporters } from "./components/supporters/supporters.js";
 import { SocialSharingButton } from "./components/social-sharing/social-sharing-button.js";
+import NumericInput from "react-numeric-input";
 // import { CountriesTable } from "./components/countries-table/countries-table.js";
 import {
   PieChartTwoTone,
@@ -29,6 +30,10 @@ export default function App() {
     iso_code: "USA",
   });
   const [content, setContent] = useState("");
+  const [
+    herdImmunityThresholdPercentage,
+    setHerdImmunityThresholdPercentage,
+  ] = useState(70);
 
   useEffect(() => {
     setSelectedCountry({
@@ -107,6 +112,9 @@ export default function App() {
                       allVaccineData={allVaccineData}
                       requestedData="timetoherd"
                       requestedDataAsPercent={false}
+                      herdImmunityThresholdPercentage={
+                        herdImmunityThresholdPercentage
+                      }
                     />
                   </span>
                   <span className="time-to-heard-unit">
@@ -142,6 +150,9 @@ export default function App() {
                       allVaccineData={allVaccineData}
                       requestedData="percentPopulationVaccinated"
                       requestedDataAsPercent={true}
+                      herdImmunityThresholdPercentage={
+                        herdImmunityThresholdPercentage
+                      }
                     />{" "}
                     % of population vaccinated
                     <ExclamationCircleOutlined
@@ -160,10 +171,14 @@ export default function App() {
                       allVaccineData={allVaccineData}
                       requestedData="dailyVaccinationRateAsPercentPopulation"
                       requestedDataAsPercent={true}
+                      herdImmunityThresholdPercentage={
+                        herdImmunityThresholdPercentage
+                      }
                     />{" "}
                     % of population receiving the vaccine daily
                     <ExclamationCircleOutlined
-                      data-tip="Average Doses Administered Daily as a Percentage of Population = [[(Total Doses Delivered as of Most Recent Reporting Date - Total Doses Delivered as of Initial Reporting Date) * 0.5] / (Days Between Initial Reporting Date &amp; Most Recent Reporting Date] / Population)"
+                      data-tip="Average Doses Administered Daily as a Percentage of Population =
+                      (7-Day Moving Average of Daily Doses Delivered / Population) * 100"
                       style={{
                         marginLeft: "4px",
                         fontSize: "14px",
@@ -173,10 +188,20 @@ export default function App() {
                   </span>
                   <span className="datapoint">
                     <HeartTwoTone twoToneColor="#eb2f96" />
-                    <span className="datapoint-value">70% </span>needed to reach
-                    herd immunity
+                    <span className="datapoint-value">
+                      <NumericInput
+                        min={70}
+                        max={95}
+                        value={herdImmunityThresholdPercentage}
+                        onChange={(valueAsNumber) =>
+                          setHerdImmunityThresholdPercentage(valueAsNumber)
+                        }
+                        format={(valueAsNumber) => valueAsNumber + "%"}
+                      />{" "}
+                    </span>
+                    needed to reach herd immunity
                     <ExclamationCircleOutlined
-                      data-tip="The exact herd immunity threshold for Covid-19 is unkown. Infectious disease experts estimate it to be between 60-90%."
+                      data-tip="The exact herd immunity threshold for Covid-19 is unkown. Assuming herd immunity is possible with COVID-19 through vaccination, infectious disease experts estimate it to be between 70-95%."
                       style={{
                         marginLeft: "4px",
                         fontSize: "14px",
