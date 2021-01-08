@@ -150,7 +150,6 @@ header nav a {
   border: none !important;
   padding: 0 !important;
   pointer-events: none;
-  text-align: left !important;
 }
 .react-numeric-input b {
   background: transparent;
@@ -218,16 +217,16 @@ header nav a {
     margin-top: -18px;
   }
   .react-numeric-input {
-    margin-right: 8px;
+    margin-right: 8px !important;
   }
   .react-numeric-input input {
-    width: 100px;
+    width: 100px !important;
   }
   .react-numeric-input b {
-    background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
   }
   .react-numeric-input b i {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.7) !important;
   }
 }
