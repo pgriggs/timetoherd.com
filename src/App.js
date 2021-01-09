@@ -131,7 +131,7 @@ export default function App() {
                 </div>
                 <p className="subheader">
                   until <h1 className="dummy-h1">herd immunity to Covid-19</h1>{" "}
-                  is reached through vaccination in{" "}
+                  is reached through vaccinations in{" "}
                   <span className="selected-country-text">
                     <CountryDropdown
                       selectedCountry={selectedCountry}
@@ -190,14 +190,14 @@ export default function App() {
                     <HeartTwoTone twoToneColor="#eb2f96" />
                     <span className="datapoint-value">
                       <NumericInput
-                        min={70}
+                        min={50}
                         max={95}
                         value={herdImmunityThresholdPercentage}
                         onChange={(valueAsNumber) => {
                           if (
                             valueAsNumber === NaN ||
                             valueAsNumber > 95 ||
-                            valueAsNumber < 70
+                            valueAsNumber < 50
                           ) {
                             setHerdImmunityThresholdPercentage(70);
                           } else {
