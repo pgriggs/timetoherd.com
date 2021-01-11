@@ -109,14 +109,18 @@ header nav a {
   margin-right: -8px;
 }
 
-.country-section .amzn-link {
+.country-section .footer-link-container {
+  font-size: 18px;
+  color: #fff;
+}
+.country-section .footer-link {
   font-size: 18px;
   color: #fff;
   text-decoration: underline;
   transition: color 0.3s;
 }
 
-.country-section .amzn-link:hover {
+.country-section .footer-link:hover {
   color: #40a9ff;
 }
 

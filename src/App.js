@@ -223,13 +223,16 @@ export default function App() {
                   setSelectedCountry={setSelectedCountry}
                   selectedCountry={selectedCountry}
                 />
-                <a
-                  className="amzn-link"
-                  target="_blank"
-                  href="https://www.amazon.com/gp/search?ie=UTF8&tag=timetoherd-20&linkCode=ur2&linkId=dbaafa6eec05baa8aaf6d35592380e6f&camp=1789&creative=9325&index=aps&keywords=face mask"
-                >
-                  Need a face mask?
-                </a>
+                <span className="footer-link-container">
+                  Supported by &nbsp;
+                  <a
+                    className="footer-link"
+                    target="_blank"
+                    href="https://deepai.org/"
+                  >
+                    DeepAI
+                  </a>
+                </span>
                 <ReactTooltip>{content}</ReactTooltip>
               </div>
               {/* <div className="countries-table-section">
