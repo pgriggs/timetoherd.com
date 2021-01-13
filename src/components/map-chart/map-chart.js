@@ -39,8 +39,8 @@ export const MapChart = ({
     <>
       <ComposableMap
         data-tip=""
-        width="1150"
-        height="800"
+        width={1150}
+        height={800}
         projectionConfig={{ scale: 260 }}
       >
         <ZoomableGroup>
