@@ -195,7 +195,7 @@ export default function App() {
                         value={herdImmunityThresholdPercentage}
                         onChange={(valueAsNumber) => {
                           if (
-                            valueAsNumber === NaN ||
+                            isNaN(valueAsNumber) ||
                             valueAsNumber > 95 ||
                             valueAsNumber < 50
                           ) {
