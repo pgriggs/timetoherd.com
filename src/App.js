@@ -47,7 +47,6 @@ export default function App() {
       "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.csv",
       {
         complete: (results) => {
-          console.log(results.data);
           return setAllVaccineData(results.data);
         },
       }
@@ -118,7 +117,7 @@ export default function App() {
                     />
                   </span>
                   <span className="time-to-heard-unit">
-                    &nbsp;days{" "}
+                    {" "}days{" "}
                     <ExclamationCircleOutlined
                       data-tip="Days = [(Population * 0.7) - (Vaccine Doses Delivered * 0.5)] / (Average Daily Vaccine Doses Given * 0.5) "
                       style={{
@@ -129,7 +128,7 @@ export default function App() {
                     />
                   </span>
                 </div>
-                <p className="subheader">
+                <div className="subheader">
                   until <h1 className="dummy-h1">herd immunity to Covid-19</h1>{" "}
                   is reached through vaccinations in{" "}
                   <span className="selected-country-text">
@@ -138,7 +137,7 @@ export default function App() {
                       setSelectedCountry={setSelectedCountry}
                     />
                   </span>
-                </p>
+                </div>
                 <span className="asterisk">
                   *at current daily vaccination rates
                 </span>
@@ -195,7 +194,7 @@ export default function App() {
                         value={herdImmunityThresholdPercentage}
                         onChange={(valueAsNumber) => {
                           if (
-                            valueAsNumber === NaN ||
+                            isNaN(valueAsNumber) ||
                             valueAsNumber > 95 ||
                             valueAsNumber < 50
                           ) {
@@ -224,7 +223,7 @@ export default function App() {
                   selectedCountry={selectedCountry}
                 />
                 <span className="footer-link-container">
-                  Supported by &nbsp;
+                  Supported by {" "}
                   <a
                     className="footer-link"
                     target="_blank"
