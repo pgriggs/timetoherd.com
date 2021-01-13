@@ -128,7 +128,7 @@ export default function App() {
                     />
                   </span>
                 </div>
-                <p className="subheader">
+                <div className="subheader">
                   until <h1 className="dummy-h1">herd immunity to Covid-19</h1>{" "}
                   is reached through vaccinations in{" "}
                   <span className="selected-country-text">
@@ -137,7 +137,7 @@ export default function App() {
                       setSelectedCountry={setSelectedCountry}
                     />
                   </span>
-                </p>
+                </div>
                 <span className="asterisk">
                   *at current daily vaccination rates
                 </span>
