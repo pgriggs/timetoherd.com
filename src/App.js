@@ -47,7 +47,6 @@ export default function App() {
       "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.csv",
       {
         complete: (results) => {
-          console.log(results.data);
           return setAllVaccineData(results.data);
         },
       }
