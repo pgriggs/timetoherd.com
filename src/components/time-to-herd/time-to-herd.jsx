@@ -98,7 +98,6 @@ export const TimeToHerdCount = ({
     vaccineDosesDelivered,
     dailyVaccinationRate
   ) => {
-    console.log("threshold " + herdImmunnityVaccinationThreshold);
     let daysRounded = Math.round(
       (herdImmunnityVaccinationThreshold - vaccineDosesDelivered) /
         dailyVaccinationRate
