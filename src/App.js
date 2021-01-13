@@ -118,7 +118,7 @@ export default function App() {
                     />
                   </span>
                   <span className="time-to-heard-unit">
-                    &nbsp;days{" "}
+                    {" "}days{" "}
                     <ExclamationCircleOutlined
                       data-tip="Days = [(Population * 0.7) - (Vaccine Doses Delivered * 0.5)] / (Average Daily Vaccine Doses Given * 0.5) "
                       style={{
@@ -224,7 +224,7 @@ export default function App() {
                   selectedCountry={selectedCountry}
                 />
                 <span className="footer-link-container">
-                  Supported by &nbsp;
+                  Supported by {" "}
                   <a
                     className="footer-link"
                     target="_blank"
