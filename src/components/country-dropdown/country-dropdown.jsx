@@ -45,7 +45,12 @@ export const CountryDropdown = ({ selectedCountry, setSelectedCountry }) => {
       onVisibleChange={(visible) => dropdownVisibleChangeHandler(visible)}
       arrow
     >
-      <span className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
+      <span
+        role="button"
+        tabIndex={0}
+        className="ant-dropdown-link"
+        onClick={(e) => e.preventDefault()}
+      >
         {selectedCountry.name}
         <DownOutlined
           style={
