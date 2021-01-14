@@ -227,6 +227,7 @@ export default function App() {
                   <a
                     className="footer-link"
                     target="_blank"
+                    rel="noreferrer"
                     href="https://deepai.org/"
                   >
                     DeepAI

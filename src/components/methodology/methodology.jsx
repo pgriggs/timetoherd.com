@@ -14,6 +14,7 @@ export const Methodology = () => {
             population having immunity to that disease.{" "}
             <a
               target="_blank"
+              rel="noreferrer"
               href="https://en.wikipedia.org/wiki/Herd_immunity"
             >
               Learn more
@@ -61,6 +62,7 @@ export const Methodology = () => {
             experts.{" "}
             <a
               target="_blank"
+              rel="noreferrer"
               href="https://www.nytimes.com/2020/12/24/health/herd-immunity-covid-coronavirus.html"
             >
               Learn more
@@ -94,6 +96,7 @@ export const Methodology = () => {
             <b>Vaccine Data per Country: </b>
             <a
               target="_blank"
+              rel="noreferrer"
               href="https://github.com/owid/covid-19-data/tree/master/public/data/vaccinations"
             >
               https://github.com/owid/covid-19-data/tree/master/public/data/vaccinations
@@ -104,7 +107,11 @@ export const Methodology = () => {
           <h3>Project Code</h3>
           <span>
             <b>Github repo for timetoherd.com: </b>
-            <a target="_blank" href="https://github.com/pgriggs/timetoherd.com">
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://github.com/pgriggs/timetoherd.com"
+            >
               https://github.com/pgriggs/timetoherd.com
             </a>
           </span>
