@@ -21,7 +21,7 @@ export const CountryDropdown = ({ selectedCountry, setSelectedCountry }) => {
 
   const menu = (
     <Menu>
-      {CountriesMasterList.map((country, index) => (
+      {CountriesMasterList.map((country) => (
         <Menu.Item
           key={country.iso_code}
           style={
