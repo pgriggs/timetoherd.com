@@ -3,7 +3,7 @@ import { Menu, Dropdown } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "./country-dropdown.css";
-import { CountriesMasterList } from "../../shared/data-factory.js";
+import { CountriesMasterList } from "../../shared/data-factory";
 
 export const CountryDropdown = ({ selectedCountry, setSelectedCountry }) => {
   const [menuIsVisble, setMenuIsVisible] = useState(false);

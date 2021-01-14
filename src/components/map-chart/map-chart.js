@@ -28,11 +28,7 @@ export const MapChart = ({
         iso_code: ISO_A3,
       });
     } else {
-      toast(
-        "Looks like there isn't public vaccine data available for  " +
-          NAME +
-          " yet!"
-      );
+      toast(`Looks like there isn't public vaccine data available for ${NAME} yet!`);
     }
   };
   return (

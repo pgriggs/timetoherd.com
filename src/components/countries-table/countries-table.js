@@ -1,6 +1,6 @@
 import React from "react";
 import { TimeToHerdCount } from "../united-states/united-states";
-import { CountriesMasterList } from "../../shared/data-factory.js";
+import { CountriesMasterList } from "../../shared/data-factory";
 import "antd/dist/antd.css";
 import "./countries-table.css";
 
@@ -54,7 +54,7 @@ export const CountriesTable = ({ allVaccineData }) => {
                       }}
                       allVaccineData={allVaccineData}
                       requestedData="percentPopulationVaccinated"
-                      requestedDataAsPercent={true}
+                      requestedDataAsPercent
                     />
                     %
                   </td>
@@ -79,7 +79,7 @@ export const CountriesTable = ({ allVaccineData }) => {
                       }}
                       allVaccineData={allVaccineData}
                       requestedData="dailyMovingAverageAsPercentPopulation"
-                      requestedDataAsPercent={true}
+                      requestedDataAsPercent
                     />
                     %
                   </td>

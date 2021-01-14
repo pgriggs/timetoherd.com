@@ -23,7 +23,7 @@ export const Supporters = () => {
                 className="deepai-logo"
                 src="DeepAI-logo-transparent-white-text.png"
                 alt="DeepAI's logo"
-              ></img>
+               />
             </a>
           </span>
         </div>
@@ -35,7 +35,7 @@ export const Supporters = () => {
                 className="deepai-logo"
                 src="https://avatars3.githubusercontent.com/u/14187135?s=200&v=4"
                 alt="Our World in Data's logo"
-              ></img>
+               />
             </a>
           </span>
           <span>
