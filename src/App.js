@@ -3,15 +3,14 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import "./App.css";
 import { TimeToHerdCount } from "./components/time-to-herd/time-to-herd";
-import { CountryDropdown } from "./components/country-dropdown/country-dropdown.js";
+import { CountryDropdown } from "./components/country-dropdown/country-dropdown";
 import { readRemoteFile } from "react-papaparse";
-import { MapChart } from "./components/map-chart/map-chart.js";
+import { MapChart } from "./components/map-chart/map-chart";
 import { ToastContainer, Slide } from "react-toastify";
-import { Methodology } from "./components/methodology/methodology.js";
-import { Supporters } from "./components/supporters/supporters.js";
-import { SocialSharingButton } from "./components/social-sharing/social-sharing-button.js";
+import { Methodology } from "./components/methodology/methodology";
+import { Supporters } from "./components/supporters/supporters";
+import { SocialSharingButton } from "./components/social-sharing/social-sharing-button";
 import NumericInput from "react-numeric-input";
-// import { CountriesTable } from "./components/countries-table/countries-table.js";
 import {
   PieChartTwoTone,
   HeartTwoTone,
@@ -21,6 +20,7 @@ import {
 } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "react-toastify/dist/ReactToastify.css";
+// import { CountriesTable } from "./components/countries-table/countries-table.js";
 // import { CountriesMasterList } from "./shared/data-factory.js";
 
 export default function App() {
@@ -63,7 +63,7 @@ export default function App() {
         <ToastContainer
           position="top-center"
           autoClose={3000}
-          hideProgressBar={true}
+          hideProgressBar
           transition={Slide}
           limit={5}
         />
@@ -148,7 +148,7 @@ export default function App() {
                       selectedCountry={selectedCountry}
                       allVaccineData={allVaccineData}
                       requestedData="percentPopulationVaccinated"
-                      requestedDataAsPercent={true}
+                      requestedDataAsPercent
                       herdImmunityThresholdPercentage={
                         herdImmunityThresholdPercentage
                       }
@@ -169,7 +169,7 @@ export default function App() {
                       selectedCountry={selectedCountry}
                       allVaccineData={allVaccineData}
                       requestedData="dailyVaccinationRateAsPercentPopulation"
-                      requestedDataAsPercent={true}
+                      requestedDataAsPercent
                       herdImmunityThresholdPercentage={
                         herdImmunityThresholdPercentage
                       }
@@ -203,7 +203,7 @@ export default function App() {
                             setHerdImmunityThresholdPercentage(valueAsNumber);
                           }
                         }}
-                        format={(valueAsNumber) => valueAsNumber + "%"}
+                        format={(valueAsNumber) => `${valueAsNumber}%`}
                       />{" "}
                     </span>
                     needed to reach herd immunity
