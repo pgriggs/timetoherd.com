@@ -2,15 +2,8 @@ import React, { useState, useCallback, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import "./App.css";
-import { TimeToHerdCount } from "./components/time-to-herd/time-to-herd";
-import { CountryDropdown } from "./components/country-dropdown/country-dropdown";
 import { readRemoteFile } from "react-papaparse";
-import { MapChart } from "./components/map-chart/map-chart";
 import { ToastContainer, Slide } from "react-toastify";
-import { Methodology } from "./components/methodology/methodology";
-import { Supporters } from "./components/supporters/supporters";
-import { SocialSharingButton } from "./components/social-sharing/social-sharing-button";
-import NumericInput from "react-numeric-input";
 import {
   PieChartTwoTone,
   HeartTwoTone,
@@ -18,6 +11,13 @@ import {
   ArrowLeftOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
+import NumericInput from "react-numeric-input";
+import { TimeToHerdCount } from "./components/time-to-herd/time-to-herd";
+import { CountryDropdown } from "./components/country-dropdown/country-dropdown";
+import { MapChart } from "./components/map-chart/map-chart";
+import { Methodology } from "./components/methodology/methodology";
+import { Supporters } from "./components/supporters/supporters";
+import { SocialSharingButton } from "./components/social-sharing/social-sharing-button";
 import "antd/dist/antd.css";
 import "react-toastify/dist/ReactToastify.css";
 // import { CountriesTable } from "./components/countries-table/countries-table.js";
