@@ -14,9 +14,12 @@ export const Supporters = () => {
               href="https://twitter.com/PeterGriggs"
               target="_blank"
             >
-              @PeterGriggs
+              @petergriggs
             </a>
           </span>
+        </div>
+        <div className="item">
+          <h2>Supported by:</h2>
           <span>
             <a href="https://deepai.org" target="_blank">
               <img

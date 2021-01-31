@@ -18,6 +18,24 @@ export const CountriesMasterList = [
     population: 1569439,
   },
   {
+    location: "Belgium",
+    iso_code: "BEL",
+    coordinates: [4.4699, 50.5039],
+    population: 11460000,
+  },
+  {
+    location: "Bermuda",
+    iso_code: "BMU",
+    coordinates: [-64.7505, 32.3078],
+    population: 63918,
+  },
+  {
+    location: "Brazil",
+    iso_code: "BRA",
+    coordinates: [-51.9253, -14.235],
+    population: 211150000,
+  },
+  {
     location: "Bulgaria",
     iso_code: "BGR",
     coordinates: [25.4858, 42.7339],
@@ -60,10 +78,22 @@ export const CountriesMasterList = [
     population: 1189265,
   },
   {
+    location: "Czechia",
+    iso_code: "CZE",
+    coordinates: [15.473, 49.8175],
+    population: 10650000,
+  },
+  {
     location: "Denmark",
     iso_code: "DNK",
     coordinates: [9.5018, 56.2639],
     population: 5797446,
+  },
+  {
+    location: "Ecuador",
+    iso_code: "ECU",
+    coordinates: [-78.1834, -1.8312],
+    population: 17370000,
   },
   {
     location: "Estonia",
@@ -90,6 +120,12 @@ export const CountriesMasterList = [
     population: 82927922,
   },
   {
+    location: "Gibraltar",
+    iso_code: "GIB",
+    coordinates: [-5.3536, 36.1408],
+    population: 33701,
+  },
+  {
     location: "Greece",
     iso_code: "GRC",
     coordinates: [21.8243, 39.0742],
@@ -108,10 +144,28 @@ export const CountriesMasterList = [
     population: 353574,
   },
   {
+    location: "India",
+    iso_code: "IND",
+    coordinates: [78.9629, 20.5937],
+    population: 1367600000,
+  },
+  {
+    location: "Indonesia",
+    iso_code: "IDN",
+    coordinates: [113.9213, -0.7893],
+    population: 270625568,
+  },
+  {
     location: "Ireland",
     iso_code: "IRL",
     coordinates: [-7.6921, 53.1424],
     population: 4853506,
+  },
+  {
+    location: "Isle of Man",
+    iso_code: "IMN",
+    coordinates: [-4.5481, 54.2361],
+    population: 84584,
   },
   {
     location: "Israel",
@@ -162,6 +216,12 @@ export const CountriesMasterList = [
     population: 126190788,
   },
   {
+    location: "Netherlands",
+    iso_code: "NLD",
+    coordinates: [5.2913, 52.1326],
+    population: 17280000,
+  },
+  {
     location: "Norway",
     iso_code: "NOR",
     coordinates: [8.4689, 60.472],
@@ -172,6 +232,12 @@ export const CountriesMasterList = [
     iso_code: "OMN",
     coordinates: [55.9754, 21.4735],
     population: 4829483,
+  },
+  {
+    location: "Panama",
+    iso_code: "PAN",
+    coordinates: [-80.7821, 8.538],
+    population: 4246000,
   },
   {
     location: "Poland",
@@ -204,6 +270,12 @@ export const CountriesMasterList = [
     population: 33699947,
   },
   {
+    location: "Serbia",
+    iso_code: "SRB",
+    coordinates: [21.0059, 44.0165],
+    population: 33699947,
+  },
+  {
     location: "Slovakia",
     iso_code: "SVK",
     coordinates: [19.699, 48.669],
@@ -220,6 +292,30 @@ export const CountriesMasterList = [
     iso_code: "ESP",
     coordinates: [-3.7492, 40.4637],
     population: 46723749,
+  },
+  {
+    location: "Sri Lanka",
+    iso_code: "LKA",
+    coordinates: [80.7718, 7.8731],
+    population: 21803000,
+  },
+  {
+    location: "Sweden",
+    iso_code: "SWE",
+    coordinates: [18.6435, 60.1282],
+    population: 10036379,
+  },
+  {
+    location: "Switzerland",
+    iso_code: "CHE",
+    coordinates: [8.2275, 46.8182],
+    population: 8591365,
+  },
+  {
+    location: "Turkey",
+    iso_code: "TUR",
+    coordinates: [35.2433, 38.9637],
+    population: 83429615,
   },
   {
     location: "United Arab Emirates	",

@@ -224,14 +224,16 @@ export default function App() {
                   selectedCountry={selectedCountry}
                 />
                 <span className="footer-link-container">
-                  Supported by &nbsp;
-                  <a
-                    className="footer-link"
-                    target="_blank"
-                    href="https://deepai.org/"
-                  >
-                    DeepAI
-                  </a>
+                  <span>
+                    Supported by &nbsp;
+                    <a
+                      className="footer-link"
+                      target="_blank"
+                      href="https://deepai.org/"
+                    >
+                      DeepAI
+                    </a>
+                  </span>
                 </span>
                 <ReactTooltip>{content}</ReactTooltip>
               </div>
