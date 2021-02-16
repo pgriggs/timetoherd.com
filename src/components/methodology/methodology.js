@@ -78,14 +78,14 @@ export const Methodology = () => {
           </span>
           <span>
             <b>Immunity from Covid-19 Infection:</b> We do not include confirmed
-            Covid-19 cases in our project of time to herd immunity. It is
-            unknown if Covid-19 infection gives immunity, and if yes, how
-            frequently infection results in immunity. Furthermore, the vaccine
-            data does not state whether the person vaccinated was previsouly
-            infected. Additionally, the CDC recommends vaccinations even for
-            those who were confirmed to have been infected with Covid-19 in the
-            past. For these reasons, we've decided to focus on the time for a
-            population to reach herd immunity through vaccination.
+            Covid-19 cases in our projection of time to herd immunity. While new
+            studies (as of January, 2020) suggest infection with COVID-19 leads
+            to immunity, the vaccine data does not state whether the person
+            vaccinated was previsouly infected. Additionally, the CDC recommends
+            vaccinations even for those who were confirmed to have been infected
+            with Covid-19 in the past. For these reasons, we've decided to focus
+            on the time for a population to reach herd immunity through
+            vaccination.
           </span>
         </div>
         <div className="item">

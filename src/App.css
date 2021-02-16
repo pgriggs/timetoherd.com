@@ -110,14 +110,26 @@ header nav a {
 }
 
 .country-section .footer-link-container {
-  font-size: 18px;
+  font-size: 16px;
   color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
 }
 .country-section .footer-link {
-  font-size: 18px;
+  font-size: 16px;
   color: #fff;
   text-decoration: underline;
   transition: color 0.3s;
+}
+
+.country-section .footer-link-container .divider {
+  height: 60%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 4px 8px;
 }
 
 .country-section .footer-link:hover {
@@ -233,5 +245,11 @@ header nav a {
   }
   .react-numeric-input b i {
     background-color: rgba(255, 255, 255, 0.7) !important;
+  }
+  .country-section .footer-link-container {
+    font-size: 14px;
+  }
+  .country-section .footer-link {
+    font-size: 14px;
   }
 }

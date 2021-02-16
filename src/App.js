@@ -130,8 +130,8 @@ export default function App() {
                   </span>
                 </div>
                 <p className="subheader">
-                  until <h1 className="dummy-h1">herd immunity to Covid-19</h1>{" "}
-                  is reached through vaccinations in{" "}
+                  until {herdImmunityThresholdPercentage}% of the population is
+                  vaccinated against COVID-19 in{" "}
                   <span className="selected-country-text">
                     <CountryDropdown
                       selectedCountry={selectedCountry}
@@ -140,7 +140,7 @@ export default function App() {
                   </span>
                 </p>
                 <span className="asterisk">
-                  *at current daily vaccination rates
+                  *at current average daily vaccination rates
                 </span>
                 <p className="country-meta-data">
                   <span className="datapoint">
@@ -175,7 +175,7 @@ export default function App() {
                         herdImmunityThresholdPercentage
                       }
                     />{" "}
-                    % of population receiving the vaccine daily
+                    % of population vaccinated daily
                     <ExclamationCircleOutlined
                       data-tip="Average Doses Administered Daily as a Percentage of Population =
                       (7-Day Moving Average of Daily Doses Delivered / Population) * 100"
@@ -207,7 +207,7 @@ export default function App() {
                         format={(valueAsNumber) => valueAsNumber + "%"}
                       />{" "}
                     </span>
-                    needed to reach herd immunity
+                    to reach herd immunity
                     <ExclamationCircleOutlined
                       data-tip="The exact herd immunity threshold for Covid-19 is unkown. Assuming herd immunity is possible with COVID-19 through vaccination, infectious disease experts estimate it to be between 70-95%."
                       style={{
@@ -224,6 +224,17 @@ export default function App() {
                   selectedCountry={selectedCountry}
                 />
                 <span className="footer-link-container">
+                  <span>
+                    Made by &nbsp;
+                    <a
+                      className="footer-link"
+                      target="_blank"
+                      href="https://twitter.com/PeterGriggs"
+                    >
+                      @PeterGriggs
+                    </a>
+                  </span>
+                  <span className="divider"></span>
                   <span>
                     Supported by &nbsp;
                     <a
