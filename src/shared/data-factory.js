@@ -233,12 +233,12 @@ export const CountriesMasterList = [
     coordinates: [55.9754, 21.4735],
     population: 4829483,
   },
-  {
-    location: "Panama",
-    iso_code: "PAN",
-    coordinates: [-80.7821, 8.538],
-    population: 4246000,
-  },
+  // {
+  //   location: "Panama",
+  //   iso_code: "PAN",
+  //   coordinates: [-80.7821, 8.538],
+  //   population: 4246000,
+  // },
   {
     location: "Poland",
     iso_code: "POL",
