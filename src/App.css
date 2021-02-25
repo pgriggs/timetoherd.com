@@ -97,12 +97,12 @@ header nav a {
   display: flex;
   justify-content: center;
   align-items: center;
-  white-space: pre;
+  white-space: nowrap;
   margin-right: 16px;
 }
 
 .country-section .country-meta-data .anticon {
-  margin: 0 4px 0 12px;
+  margin: 0 8px 0 12px;
 }
 
 .country-section .country-meta-data .datapoint-value {

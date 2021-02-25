@@ -21,6 +21,7 @@ import {
 } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "react-toastify/dist/ReactToastify.css";
+import { cleanup } from "@testing-library/react";
 // import { CountriesMasterList } from "./shared/data-factory.js";
 
 export default function App() {
@@ -205,9 +206,9 @@ export default function App() {
                           }
                         }}
                         format={(valueAsNumber) => valueAsNumber + "%"}
-                      />{" "}
+                      />
                     </span>
-                    to reach herd immunity
+                    &nbsp; to reach herd immunity
                     <ExclamationCircleOutlined
                       data-tip="The exact herd immunity threshold for Covid-19 is unkown. Assuming herd immunity is possible with COVID-19 through vaccination, infectious disease experts estimate it to be between 70-95%."
                       style={{
