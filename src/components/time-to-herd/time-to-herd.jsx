@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import CountUp from "react-countup";
 import "./country-section.css";
 import { CountriesMasterList } from "../../shared/data-factory.js";
+import moment from 'moment';
 
 export const TimeToHerdCount = ({
   selectedCountry,
@@ -9,6 +10,7 @@ export const TimeToHerdCount = ({
   requestedData,
   requestedDataAsPercent,
   herdImmunityThresholdPercentage,
+  addDays = false,
 }) => {
   const [
     herdImmunityVaccinationThreshold,
@@ -154,14 +156,17 @@ export const TimeToHerdCount = ({
 
   return (
     <>
-      {requestedDataAsPercent ? (
-        <CountUp end={requestedDataValue || 0} duration={1} decimals={3} />
-      ) : (
-        <CountUp
-          className="datapoint-value"
-          end={requestedDataValue || 0}
-          separator=","
-        />
+      {addDays ?
+        (moment().add(requestedDataValue, 'days').format("YYYY MMMM DD"))
+        : (requestedDataAsPercent ? (
+          <CountUp end={requestedDataValue || 0} duration={1} decimals={3} />
+        ) : (
+          <CountUp
+            className="datapoint-value"
+            end={requestedDataValue || 0}
+            separator=","
+          />
+        )
       )}
     </>
   );
