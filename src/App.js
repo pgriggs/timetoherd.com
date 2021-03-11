@@ -129,6 +129,18 @@ export default function App() {
                       }}
                     />
                   </span>
+                  <span className="time-to-herd-date">
+                    &nbsp;(<TimeToHerdCount
+                          selectedCountry={selectedCountry}
+                          allVaccineData={allVaccineData}
+                          requestedData="timetoherd"
+                          requestedDataAsPercent={false}
+                          herdImmunityThresholdPercentage={
+                            herdImmunityThresholdPercentage
+                          }
+                          addDays={true}
+                        />)
+                  </span>
                 </div>
                 <p className="subheader">
                   until {herdImmunityThresholdPercentage}% of the population is
