@@ -7,7 +7,7 @@ import {
   ZoomableGroup,
 } from "react-simple-maps";
 import { toast } from "react-toastify";
-import { CountriesMasterList } from "../../shared/data-factory.js";
+import { CountriesMasterList } from "../../shared/data-factory";
 
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
@@ -28,11 +28,7 @@ export const MapChart = ({
         iso_code: ISO_A3,
       });
     } else {
-      toast(
-        "Looks like there isn't public vaccine data available for  " +
-          NAME +
-          " yet!"
-      );
+      toast(`Looks like there isn't public vaccine data available for ${NAME} yet!`);
     }
   };
   return (

@@ -32,7 +32,7 @@ export const SocialSharingButton = () => {
 
   return (
     <div>
-      <button className="social-button" onClick={openModal}>
+      <button type="button" className="social-button" onClick={openModal}>
         share
       </button>
       <Modal

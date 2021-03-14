@@ -3,7 +3,7 @@ import { Menu, Dropdown } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import "./country-dropdown.css";
-import { CountriesMasterList } from "../../shared/data-factory.js";
+import { CountriesMasterList } from "../../shared/data-factory";
 
 export const CountryDropdown = ({ selectedCountry, setSelectedCountry }) => {
   const [menuIsVisble, setMenuIsVisible] = useState(false);
@@ -21,7 +21,7 @@ export const CountryDropdown = ({ selectedCountry, setSelectedCountry }) => {
 
   const menu = (
     <Menu>
-      {CountriesMasterList.map((country, index) => (
+      {CountriesMasterList.map((country) => (
         <Menu.Item
           key={country.iso_code}
           style={
@@ -45,7 +45,12 @@ export const CountryDropdown = ({ selectedCountry, setSelectedCountry }) => {
       onVisibleChange={(visible) => dropdownVisibleChangeHandler(visible)}
       arrow
     >
-      <span className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
+      <span
+        role="button"
+        tabIndex={0}
+        className="ant-dropdown-link"
+        onClick={(e) => e.preventDefault()}
+      >
         {selectedCountry.name}
         <DownOutlined
           style={

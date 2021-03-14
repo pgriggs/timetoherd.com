@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import CountUp from "react-countup";
 import "./country-section.css";
-import { CountriesMasterList } from "../../shared/data-factory.js";
+import { CountriesMasterList } from "../../shared/data-factory";
+import { handleCountryUpdate, calcDaysToHerd, parseVaccineData } from "./ herdHelpers";
 
 export const TimeToHerdCount = ({
   selectedCountry,
@@ -10,18 +11,12 @@ export const TimeToHerdCount = ({
   requestedDataAsPercent,
   herdImmunityThresholdPercentage,
 }) => {
-  const [
-    herdImmunityVaccinationThreshold,
-    setHerdImmunityVaccinationThreshold,
-  ] = useState(); // multiply by 2 to account for two-shot vaccinations
+  const [herdImmunityVaccinationThreshold, setHerdImmunityVaccinationThreshold] = useState(); // multiply by 2 to account for two-shot vaccinations
   const [dailyVaccinationRate, setDailyVaccinationRate] = useState();
   const [daysToHerd, setDaysToHerd] = useState();
   const [vaccineDosesDelivered, setVaccineDosesDelivered] = useState();
   const [requestedDataValue, setRequestedDataValue] = useState();
-  const [
-    percentPopulationVaccinated,
-    setPercentPopulationVaccinated,
-  ] = useState();
+  const [percentPopulationVaccinated, setPercentPopulationVaccinated] = useState();
   const [population, setPopulation] = useState();
   const [
     dailyVaccinationRateAsPercentPopulation,
@@ -30,14 +25,13 @@ export const TimeToHerdCount = ({
   //   const [vaccinationsListByDate, setVaccinationsListByDate] = useState();
 
   useEffect(() => {
-    let thisCountry = CountriesMasterList.find((country) => {
-      return country.iso_code === selectedCountry.iso_code;
+    handleCountryUpdate({
+      CountriesMasterList,
+      countryCode: selectedCountry.iso_code,
+      setPopulation,
+      setHerdImmunityVaccinationThreshold,
+      herdImmunityThresholdPercentage,
     });
-    // setHerdImmunityPopulationThreshold(thisCountry.population * 0.7);
-    setPopulation(thisCountry.population);
-    setHerdImmunityVaccinationThreshold(
-      thisCountry.population * 2 * (herdImmunityThresholdPercentage / 100)
-    );
   }, [
     selectedCountry.iso_code,
     setHerdImmunityVaccinationThreshold,
@@ -47,73 +41,27 @@ export const TimeToHerdCount = ({
   ]);
 
   useEffect(() => {
-    const parseVaccineData = (allVaccineData) => {
-      // Source data heading locations dynamically as the source add columns from time to time
-      const dataHeadings = allVaccineData[0];
-      const isoCodeIdx = dataHeadings.findIndex(
-        (heading) => heading === "iso_code"
-      );
-      const dailyVaccinationsIdx = dataHeadings.findIndex(
-        (heading) => heading === "daily_vaccinations"
-      );
-      const totalVaccinationsIdx = dataHeadings.findIndex(
-        (heading) => heading === "total_vaccinations"
-      );
-
-      // Get most recent data from selected country
-      const countryData = allVaccineData.filter(
-        (data) => data[isoCodeIdx] === selectedCountry.iso_code
-      );
-
-      const mostRecentCountryData = countryData[countryData.length - 1];
-
-      // Get most recent fields for calculations
-      // Set values for display
-      let dailyRate = mostRecentCountryData[dailyVaccinationsIdx] ?? 0;
-
-      if (countryData.length === 1) {
-        dailyRate = mostRecentCountryData[totalVaccinationsIdx];
-      }
-
-      const totalVaccinations = mostRecentCountryData[totalVaccinationsIdx];
-
-      // Set values for display
-
-      setDailyVaccinationRate(dailyRate);
-      setDailyVaccinationRateAsPercentPopulation(
-        (dailyRate / population) * 100
-      );
-      setVaccineDosesDelivered(totalVaccinations);
-      setPercentPopulationVaccinated(totalVaccinations / (population * 2));
-    };
-
     // Only parse after vaccination data has been retrieved
     if (allVaccineData.length > 0) {
-      parseVaccineData(allVaccineData);
+      parseVaccineData({
+        allVaccineData,
+        countryCode: selectedCountry.iso_code,
+        population,
+        setDailyVaccinationRate,
+        setDailyVaccinationRateAsPercentPopulation,
+        setVaccineDosesDelivered,
+        setPercentPopulationVaccinated,
+      });
     }
   }, [allVaccineData, selectedCountry.iso_code, population, selectedCountry]);
 
-  const calcDaysToHerd = (
-    herdImmunnityVaccinationThreshold,
-    vaccineDosesDelivered,
-    dailyVaccinationRate
-  ) => {
-    console.log("threshold " + herdImmunnityVaccinationThreshold);
-    let daysRounded = Math.round(
-      (herdImmunnityVaccinationThreshold - vaccineDosesDelivered) /
-        dailyVaccinationRate
-    );
-
-    return daysRounded;
-  };
-
   useEffect(() => {
-    let daysToHerdPlaceholder = calcDaysToHerd(
+    calcDaysToHerd({
       herdImmunityVaccinationThreshold,
       vaccineDosesDelivered,
-      dailyVaccinationRate
-    );
-    setDaysToHerd(daysToHerdPlaceholder);
+      dailyVaccinationRate,
+      setDaysToHerd,
+    });
   }, [
     dailyVaccinationRate,
     herdImmunityVaccinationThreshold,
@@ -122,23 +70,27 @@ export const TimeToHerdCount = ({
   ]);
 
   useEffect(() => {
-    if (requestedData === "timetoherd") {
-      setRequestedDataValue(daysToHerd);
-    }
-    if (requestedData === "vaccineDosesDelivered") {
-      setRequestedDataValue(vaccineDosesDelivered);
-    }
-    if (requestedData === "dailyVaccinationRate") {
-      setRequestedDataValue(dailyVaccinationRate);
-    }
-    if (requestedData === "herdImmunityVaccinationThreshold") {
-      setRequestedDataValue(herdImmunityVaccinationThreshold);
-    }
-    if (requestedData === "percentPopulationVaccinated") {
-      setRequestedDataValue(percentPopulationVaccinated * 100);
-    }
-    if (requestedData === "dailyVaccinationRateAsPercentPopulation") {
-      setRequestedDataValue(dailyVaccinationRateAsPercentPopulation);
+    switch (requestedData) {
+      case "timetoherd":
+        setRequestedDataValue(daysToHerd);
+        break;
+      case "vaccineDosesDelivered":
+        setRequestedDataValue(vaccineDosesDelivered);
+        break;
+      case "dailyVaccinationRate":
+        setRequestedDataValue(dailyVaccinationRate);
+        break;
+      case "herdImmunityVaccinationThreshold":
+        setRequestedDataValue(herdImmunityVaccinationThreshold);
+        break;
+      case "percentPopulationVaccinated":
+        setRequestedDataValue(percentPopulationVaccinated * 100);
+        break;
+      case "dailyVaccinationRateAsPercentPopulation":
+        setRequestedDataValue(dailyVaccinationRateAsPercentPopulation);
+        break;
+      default:
+        break;
     }
   }, [
     setRequestedDataValue,
@@ -157,11 +109,7 @@ export const TimeToHerdCount = ({
       {requestedDataAsPercent ? (
         <CountUp end={requestedDataValue || 0} duration={1} decimals={3} />
       ) : (
-        <CountUp
-          className="datapoint-value"
-          end={requestedDataValue || 0}
-          separator=","
-        />
+        <CountUp className="datapoint-value" end={requestedDataValue || 0} separator="," />
       )}
     </>
   );

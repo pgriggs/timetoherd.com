@@ -2,16 +2,8 @@ import React, { useState, useCallback, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ReactTooltip from "react-tooltip";
 import "./App.css";
-import { TimeToHerdCount } from "./components/time-to-herd/time-to-herd";
-import { CountryDropdown } from "./components/country-dropdown/country-dropdown.js";
 import { readRemoteFile } from "react-papaparse";
-import { MapChart } from "./components/map-chart/map-chart.js";
 import { ToastContainer, Slide } from "react-toastify";
-import { Methodology } from "./components/methodology/methodology.js";
-import { Supporters } from "./components/supporters/supporters.js";
-import { SocialSharingButton } from "./components/social-sharing/social-sharing-button.js";
-import NumericInput from "react-numeric-input";
-// import { CountriesTable } from "./components/countries-table/countries-table.js";
 import {
   PieChartTwoTone,
   HeartTwoTone,
@@ -19,9 +11,16 @@ import {
   ArrowLeftOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
+import NumericInput from "react-numeric-input";
+import { TimeToHerdCount } from "./components/time-to-herd/time-to-herd";
+import { CountryDropdown } from "./components/country-dropdown/country-dropdown";
+import { MapChart } from "./components/map-chart/map-chart";
+import { Methodology } from "./components/methodology/methodology";
+import { Supporters } from "./components/supporters/supporters";
+import { SocialSharingButton } from "./components/social-sharing/social-sharing-button";
 import "antd/dist/antd.css";
 import "react-toastify/dist/ReactToastify.css";
-import { cleanup } from "@testing-library/react";
+// import { CountriesTable } from "./components/countries-table/countries-table.js";
 // import { CountriesMasterList } from "./shared/data-factory.js";
 
 export default function App() {
@@ -48,7 +47,6 @@ export default function App() {
       "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.csv",
       {
         complete: (results) => {
-          console.log(results.data);
           return setAllVaccineData(results.data);
         },
       }
@@ -65,7 +63,7 @@ export default function App() {
         <ToastContainer
           position="top-center"
           autoClose={3000}
-          hideProgressBar={true}
+          hideProgressBar
           transition={Slide}
           limit={5}
         />
@@ -150,7 +148,7 @@ export default function App() {
                       selectedCountry={selectedCountry}
                       allVaccineData={allVaccineData}
                       requestedData="percentPopulationVaccinated"
-                      requestedDataAsPercent={true}
+                      requestedDataAsPercent
                       herdImmunityThresholdPercentage={
                         herdImmunityThresholdPercentage
                       }
@@ -171,7 +169,7 @@ export default function App() {
                       selectedCountry={selectedCountry}
                       allVaccineData={allVaccineData}
                       requestedData="dailyVaccinationRateAsPercentPopulation"
-                      requestedDataAsPercent={true}
+                      requestedDataAsPercent
                       herdImmunityThresholdPercentage={
                         herdImmunityThresholdPercentage
                       }
@@ -196,7 +194,7 @@ export default function App() {
                         value={herdImmunityThresholdPercentage}
                         onChange={(valueAsNumber) => {
                           if (
-                            valueAsNumber === NaN ||
+                            Number.isNaN(valueAsNumber) ||
                             valueAsNumber > 95 ||
                             valueAsNumber < 50
                           ) {
@@ -205,8 +203,8 @@ export default function App() {
                             setHerdImmunityThresholdPercentage(valueAsNumber);
                           }
                         }}
-                        format={(valueAsNumber) => valueAsNumber + "%"}
-                      />
+                        format={(valueAsNumber) => `${valueAsNumber}%`}
+                      />{" "}
                     </span>
                     &nbsp; to reach herd immunity
                     <ExclamationCircleOutlined
