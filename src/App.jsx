@@ -28,7 +28,7 @@ import { MediaFeatures } from "./components/media-features/media-features";
 document.body.addEventListener(
   "wheel",
   (e) => {
-    if (e.path.includes(document.getElementById("the-country-map"))) {
+    if (e.path && e.path.includes(document.getElementById("the-country-map"))) {
       e.preventDefault();
     }
   },
