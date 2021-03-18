@@ -20,7 +20,7 @@ export const MediaFeatures = () => {
           <img src="/imagen-tv-logo.png" />
         </div>
         <div className="feature">
-          <img src="/24-horas-lgo.webp" />
+          <img src="/24-horas-logo.png" />
         </div>
         <div className="feature">
           <img src="/tvn-buenos-dias-a-todos-logo.png" />
