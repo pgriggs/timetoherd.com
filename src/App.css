@@ -61,6 +61,10 @@ header nav a {
   align-items: center;
 }
 
+#the-country-map {
+  width: 100%;
+}
+
 .country-section {
   width: 900px;
   max-width: 100vw;

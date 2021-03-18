@@ -22,16 +22,12 @@ export const Supporters = () => {
         <div className="item">
           <h2>Supported by:</h2>
           <span>
-            <a
-              href="https://deepai.org"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href="https://deepai.org" target="_blank" rel="noreferrer">
               <img
                 className="deepai-logo"
                 src="DeepAI-logo-transparent-white-text.png"
                 alt="DeepAI's logo"
-               />
+              />
             </a>
           </span>
         </div>
@@ -47,7 +43,7 @@ export const Supporters = () => {
                 className="deepai-logo"
                 src="https://avatars3.githubusercontent.com/u/14187135?s=200&v=4"
                 alt="Our World in Data's logo"
-               />
+              />
             </a>
           </span>
           <span>
@@ -61,7 +57,7 @@ export const Supporters = () => {
             </a>
           </span>
         </div>
-        <div className="item">
+        <div className="item github-contributors">
           <h2>Github contributors:</h2>
           <span>
             <a
@@ -71,6 +67,22 @@ export const Supporters = () => {
               rel="noreferrer"
             >
               @dbunks
+            </a>
+            <a
+              className="supporter-link"
+              href="https://github.com/ChrisBit"
+              target="_blank"
+              rel="noreferrer"
+            >
+              @ChrisBit
+            </a>
+            <a
+              className="supporter-link"
+              href="https://github.com/ciruz"
+              target="_blank"
+              rel="noreferrer"
+            >
+              @ciruz
             </a>
           </span>
         </div>

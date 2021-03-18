@@ -35,6 +35,17 @@
   margin: 8px 0;
   font-size: 16px;
 }
+
+.supporters-container .item.github-contributors span {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.supporters-container .item.github-contributors span .supporter-link {
+  margin: 0 auto;
+}
+
 .deepai-logo {
   height: 100px;
 }

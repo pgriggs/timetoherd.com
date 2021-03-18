@@ -1,3 +1,71 @@
+.countries-table-section {
+  margin: 32px 0;
+  max-width: 100vw;
+}
+
+.countries-table-section .countries-table-section-header {
+  color: #fff;
+}
+
+.ant-table {
+  font-size: 16px;
+  background: #0d0d0d;
+  color: #fff;
+}
+
+.ant-table-wrapper {
+  clear: both;
+  max-width: 1200px;
+  overflow-x: hidden;
+}
+
+td.ant-table-column-sort {
+  background: #0d0d0d;
+  color: #fff;
+}
+
+.ant-table table {
+  border-radius: 12px 12px 0 0;
+  border-spacing: 0 1em;
+}
+.ant-table-container {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+.ant-table-tbody > tr.ant-table-row:hover > td {
+  background: #2e9bff;
+}
+
+.ant-table tr td {
+  border: 0.5px solid rgba(255, 255, 255, 0.5);
+}
+
+.ant-table tr td:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+.ant-table tr td:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.ant-table tr th:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+.ant-table tr th:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.ant-table-container table > thead > tr:first-child th:last-child {
+  border-top-right-radius: 12px;
+}
+
+.ant-table-container table > thead > tr:first-child th:first-child {
+  border-top-left-radius: 12px;
+}
+
 .ant-table-cell.name {
   font-weight: 600;
 }

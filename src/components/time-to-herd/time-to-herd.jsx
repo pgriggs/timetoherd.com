@@ -2,21 +2,31 @@ import React, { useState, useEffect } from "react";
 import CountUp from "react-countup";
 import "./country-section.css";
 import { CountriesMasterList } from "../../shared/data-factory";
-import { handleCountryUpdate, calcDaysToHerd, parseVaccineData } from "./ herdHelpers";
+import {
+  handleCountryUpdate,
+  calcDaysToHerd,
+  parseVaccineData,
+} from "./herdHelpers";
 
-export const TimeToHerdCount = ({
+export const TimeToHerdCountAsNum = ({
   selectedCountry,
   allVaccineData,
   requestedData,
   requestedDataAsPercent,
   herdImmunityThresholdPercentage,
 }) => {
-  const [herdImmunityVaccinationThreshold, setHerdImmunityVaccinationThreshold] = useState(); // multiply by 2 to account for two-shot vaccinations
+  const [
+    herdImmunityVaccinationThreshold,
+    setHerdImmunityVaccinationThreshold,
+  ] = useState(); // multiply by 2 to account for two-shot vaccinations
   const [dailyVaccinationRate, setDailyVaccinationRate] = useState();
   const [daysToHerd, setDaysToHerd] = useState();
   const [vaccineDosesDelivered, setVaccineDosesDelivered] = useState();
   const [requestedDataValue, setRequestedDataValue] = useState();
-  const [percentPopulationVaccinated, setPercentPopulationVaccinated] = useState();
+  const [
+    percentPopulationVaccinated,
+    setPercentPopulationVaccinated,
+  ] = useState();
   const [population, setPopulation] = useState();
   const [
     dailyVaccinationRateAsPercentPopulation,
@@ -104,24 +114,49 @@ export const TimeToHerdCount = ({
     selectedCountry,
   ]);
 
+  let returnData;
+
+  if (requestedDataValue) {
+    returnData = requestedDataAsPercent
+      ? requestedDataValue.toFixed(2)
+      : requestedDataValue;
+  }
+
+  return returnData;
+};
+
+export const TimeToHerdCountAsHTML = ({
+  selectedCountry,
+  allVaccineData,
+  requestedData,
+  requestedDataAsPercent,
+  herdImmunityThresholdPercentage,
+}) => {
+  const [requestedDataValue, setRequestedDataValue] = useState();
+
+  const getData = TimeToHerdCountAsNum({
+    selectedCountry: selectedCountry,
+    allVaccineData: allVaccineData,
+    requestedData: requestedData,
+    requestedDataAsPercent: requestedDataAsPercent,
+    herdImmunityThresholdPercentage: herdImmunityThresholdPercentage,
+  });
+
+  useEffect(() => {
+    setRequestedDataValue(getData);
+  }, [getData]);
+
   return (
     <>
       {requestedDataAsPercent ? (
-        <CountUp end={requestedDataValue || 0} duration={1} decimals={3} />
+        <CountUp end={requestedDataValue * 1 || 0} duration={1} decimals={2} />
       ) : (
-        <CountUp className="datapoint-value" end={requestedDataValue || 0} separator="," />
+        <CountUp
+          className="datapoint-value"
+          end={requestedDataValue || 0}
+          separator=","
+        />
       )}
     </>
   );
 };
-
-// <span>Vaccinations given: {vaccineDosesDelivered}</span>
-// <br></br>
-// <span>Herd Populations Threshold: {herdImmunityPopulationThreshold}</span>
-// <br></br>
-// <span>
-//   Herd Vacccination Threshold: {herdImmunnityVaccinationThreshold}
-// </span>
-// <br></br>
-// <span>Vacccination 3-day average: {dailyVaccinationMA3day}</span>
-// <br></br>

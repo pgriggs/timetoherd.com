@@ -12,16 +12,28 @@ import {
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
 import NumericInput from "react-numeric-input";
-import { TimeToHerdCount } from "./components/time-to-herd/time-to-herd";
+import { TimeToHerdCountAsHTML } from "./components/time-to-herd/time-to-herd";
 import { CountryDropdown } from "./components/country-dropdown/country-dropdown";
 import { MapChart } from "./components/map-chart/map-chart";
 import { Methodology } from "./components/methodology/methodology";
 import { Supporters } from "./components/supporters/supporters";
 import { SocialSharingButton } from "./components/social-sharing/social-sharing-button";
+import { CountriesTable } from "./components/countries-table/countries-table";
 import "antd/dist/antd.css";
 import "react-toastify/dist/ReactToastify.css";
+import { MediaFeatures } from "./components/media-features/media-features";
 // import { CountriesTable } from "./components/countries-table/countries-table.js";
 // import { CountriesMasterList } from "./shared/data-factory.js";
+
+document.body.addEventListener(
+  "wheel",
+  (e) => {
+    if (e.path.includes(document.getElementById("the-country-map"))) {
+      e.preventDefault();
+    }
+  },
+  { passive: false }
+);
 
 export default function App() {
   const [allVaccineData, setAllVaccineData] = useState([]);
@@ -106,7 +118,7 @@ export default function App() {
               <div className="country-section">
                 <div className="hero-container">
                   <span className="time-to-heard-number">
-                    <TimeToHerdCount
+                    <TimeToHerdCountAsHTML
                       selectedCountry={selectedCountry}
                       allVaccineData={allVaccineData}
                       requestedData="timetoherd"
@@ -144,7 +156,7 @@ export default function App() {
                 <p className="country-meta-data">
                   <span className="datapoint">
                     <CheckCircleTwoTone twoToneColor="#52c41a" />
-                    <TimeToHerdCount
+                    <TimeToHerdCountAsHTML
                       selectedCountry={selectedCountry}
                       allVaccineData={allVaccineData}
                       requestedData="percentPopulationVaccinated"
@@ -165,7 +177,7 @@ export default function App() {
                   </span>
                   <span className="datapoint">
                     <PieChartTwoTone />
-                    <TimeToHerdCount
+                    <TimeToHerdCountAsHTML
                       selectedCountry={selectedCountry}
                       allVaccineData={allVaccineData}
                       requestedData="dailyVaccinationRateAsPercentPopulation"
@@ -217,11 +229,13 @@ export default function App() {
                     />
                   </span>
                 </p>
-                <MapChart
-                  setTooltipContent={setContent}
-                  setSelectedCountry={setSelectedCountry}
-                  selectedCountry={selectedCountry}
-                />
+                <div id="the-country-map">
+                  <MapChart
+                    setTooltipContent={setContent}
+                    setSelectedCountry={setSelectedCountry}
+                    selectedCountry={selectedCountry}
+                  />
+                </div>
                 <span className="footer-link-container">
                   <span>
                     Made by &nbsp;
@@ -247,9 +261,13 @@ export default function App() {
                 </span>
                 <ReactTooltip>{content}</ReactTooltip>
               </div>
-              {/* <div className="countries-table-section">
-          <CountriesTable allVaccineData={allVaccineData} />
-        </div> */}
+              <MediaFeatures />
+              <CountriesTable
+                allVaccineData={allVaccineData}
+                herdImmunityThresholdPercentage={
+                  herdImmunityThresholdPercentage
+                }
+              />
             </div>
           </Route>
         </Switch>
