@@ -70,15 +70,6 @@ export default function App() {
     get_all_vaccine_data();
   }, [get_all_vaccine_data]);
 
-  useEffect(() => {
-    cleanup(() => {
-      (window.adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-2024269986118136",
-        overlays: { bottom: true },
-      });
-    });
-  });
-
   return (
     <Router>
       <div className="App">
