@@ -22,6 +22,7 @@ import { CountriesTable } from "./components/countries-table/countries-table";
 import "antd/dist/antd.css";
 import "react-toastify/dist/ReactToastify.css";
 import { MediaFeatures } from "./components/media-features/media-features";
+import { cleanup } from "@testing-library/react";
 // import { CountriesTable } from "./components/countries-table/countries-table.js";
 // import { CountriesMasterList } from "./shared/data-factory.js";
 
@@ -68,6 +69,15 @@ export default function App() {
   useEffect(() => {
     get_all_vaccine_data();
   }, [get_all_vaccine_data]);
+
+  useEffect(() => {
+    cleanup(() => {
+      (window.adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-2024269986118136",
+        overlays: { bottom: true },
+      });
+    });
+  });
 
   return (
     <Router>

@@ -138,7 +138,7 @@ export const CountriesMasterList = [
     population: 1392730000,
   },
   {
-    location: "Columbia",
+    location: "Colombia",
     iso_code: "COL",
     coordinates: [-76.861, 39.2037],
     population: 50882891,
