@@ -120,7 +120,7 @@ export default function App() {
           </header>
           <Methodology />
         </Route>
-        <Route exact path="/">
+        {/* <Route exact path="/">
           <header>
             <nav>
               <Link to="/supporters">Supporters</Link>
@@ -137,8 +137,8 @@ export default function App() {
               setHerdImmunityThresholdPercentage
             }
           />
-        </Route>
-        <Route exact path="/country/:countryParam">
+        </Route> */}
+        <Route exact path={["/", "/country/:countryParam"]}>
           <header>
             <nav>
               <Link to="/supporters">Supporters</Link>
