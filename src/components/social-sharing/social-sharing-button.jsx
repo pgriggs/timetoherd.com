@@ -30,6 +30,8 @@ export const SocialSharingButton = () => {
     setIsOpen(false);
   };
 
+  const currentUrl = window.location;
+
   return (
     <div>
       <button type="button" className="social-button" onClick={openModal}>
@@ -42,22 +44,22 @@ export const SocialSharingButton = () => {
       >
         <h2>Share Time to Herd</h2>
         <div className="social-button-container">
-          <EmailShareButton url="https://timetoherd.com">
+          <EmailShareButton url={currentUrl}>
             <EmailIcon size={32} round />
           </EmailShareButton>
-          <TwitterShareButton url="https://timetoherd.com">
+          <TwitterShareButton url={currentUrl}>
             <TwitterIcon size={32} round />
           </TwitterShareButton>
-          <FacebookShareButton url="https://timetoherd.com">
+          <FacebookShareButton url={currentUrl}>
             <FacebookIcon size={32} round />
           </FacebookShareButton>
-          <FacebookMessengerShareButton url="https://timetoherd.com">
+          <FacebookMessengerShareButton url={currentUrl}>
             <FacebookMessengerIcon size={32} round />
           </FacebookMessengerShareButton>
-          <LinkedinShareButton url="https://timetoherd.com">
+          <LinkedinShareButton url={currentUrl}>
             <LinkedinIcon size={32} round />
           </LinkedinShareButton>
-          <WhatsappShareButton url="https://timetoherd.com">
+          <WhatsappShareButton url={currentUrl}>
             <WhatsappIcon size={32} round />
           </WhatsappShareButton>
         </div>

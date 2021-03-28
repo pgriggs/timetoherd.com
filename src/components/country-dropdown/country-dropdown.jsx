@@ -7,6 +7,9 @@ import { CountriesMasterList } from "../../shared/data-factory";
 
 export const CountryDropdown = ({ selectedCountry, setSelectedCountry }) => {
   const [menuIsVisble, setMenuIsVisible] = useState(false);
+
+  console.log(selectedCountry);
+
   const selectCountryHandler = (country) => {
     setSelectedCountry({
       name: country.location,
@@ -51,7 +54,7 @@ export const CountryDropdown = ({ selectedCountry, setSelectedCountry }) => {
         className="ant-dropdown-link"
         onClick={(e) => e.preventDefault()}
       >
-        {selectedCountry.name}
+        {selectedCountry.name || selectedCountry.location}
         <DownOutlined
           style={
             menuIsVisble
