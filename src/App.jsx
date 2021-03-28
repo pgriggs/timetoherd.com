@@ -4,7 +4,6 @@ import {
   Switch,
   Route,
   Link,
-  useParams,
   useHistory,
 } from "react-router-dom";
 import "./App.css";
@@ -21,7 +20,6 @@ import { SocialSharingButton } from "./components/social-sharing/social-sharing-
 import "antd/dist/antd.css";
 import "react-toastify/dist/ReactToastify.css";
 
-import { Homepage } from "./components/homepage/homepage";
 import { CountryPage } from "./components/country-page/country-page";
 
 // import { CountriesTable } from "./components/countries-table/countries-table.js";
@@ -120,24 +118,6 @@ export default function App() {
           </header>
           <Methodology />
         </Route>
-        {/* <Route exact path="/">
-          <header>
-            <nav>
-              <Link to="/supporters">Supporters</Link>
-              <Link to="/methodology">Methodology</Link>
-              <SocialSharingButton />
-            </nav>
-          </header>
-          <Homepage
-            selectedCountry={selectedCountry}
-            setSelectedCountry={setSelectedCountryWithUrlChange}
-            allVaccineData={allVaccineData}
-            herdImmunityThresholdPercentage={herdImmunityThresholdPercentage}
-            setHerdImmunityThresholdPercentage={
-              setHerdImmunityThresholdPercentage
-            }
-          />
-        </Route> */}
         <Route exact path={["/", "/country/:countryParam"]}>
           <header>
             <nav>
