@@ -8,19 +8,14 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import { CountriesMasterList } from "./shared/data-factory";
-
 import { readRemoteFile } from "react-papaparse";
 import { ToastContainer, Slide } from "react-toastify";
-import { ArrowLeftOutlined } from "@ant-design/icons";
-
 import { Methodology } from "./components/methodology/methodology";
 import { Supporters } from "./components/supporters/supporters";
-import { SocialSharingButton } from "./components/social-sharing/social-sharing-button";
-
 import "antd/dist/antd.css";
 import "react-toastify/dist/ReactToastify.css";
-
 import { CountryPage } from "./components/country-page/country-page";
+import { HeaderBar } from "./components/header-bar/header-bar";
 
 // import { CountriesTable } from "./components/countries-table/countries-table.js";
 // import { CountriesMasterList } from "./shared/data-factory.js";
@@ -93,39 +88,15 @@ export default function App() {
       />
       <Switch>
         <Route path="/supporters">
-          <header>
-            <Link to="/" style={{ color: "#fff", fontSize: "28px" }}>
-              <ArrowLeftOutlined />
-            </Link>
-            <nav>
-              <Link to="/supporters">Supporters</Link>
-              <Link to="/methodology">Methodology</Link>
-              <SocialSharingButton />
-            </nav>
-          </header>
+          <HeaderBar showBackButton={true} />
           <Supporters />
         </Route>
         <Route path="/methodology">
-          <header>
-            <Link to="/" style={{ color: "#fff", fontSize: "28px" }}>
-              <ArrowLeftOutlined />
-            </Link>
-            <nav>
-              <Link to="/supporters">Supporters</Link>
-              <Link to="/methodology">Methodology</Link>
-              <SocialSharingButton />
-            </nav>
-          </header>
+          <HeaderBar showBackButton={true} />
           <Methodology />
         </Route>
         <Route exact path={["/", "/country/:countryParam"]}>
-          <header>
-            <nav>
-              <Link to="/supporters">Supporters</Link>
-              <Link to="/methodology">Methodology</Link>
-              <SocialSharingButton />
-            </nav>
-          </header>
+          <HeaderBar showBackButton={false} />
           <CountryPage
             selectedCountry={selectedCountry}
             setSelectedCountry={setSelectedCountryWithUrlChange}
