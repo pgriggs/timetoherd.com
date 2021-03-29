@@ -17,18 +17,15 @@ import "react-toastify/dist/ReactToastify.css";
 import { CountryPage } from "./components/country-page/country-page";
 import { HeaderBar } from "./components/header-bar/header-bar";
 
-// import { CountriesTable } from "./components/countries-table/countries-table.js";
-// import { CountriesMasterList } from "./shared/data-factory.js";
-
-// document.body.addEventListener(
-//   "wheel",
-//   (e) => {
-//     if (e.path && e.path.includes(document.getElementById("the-country-map"))) {
-//       e.preventDefault();
-//     }
-//   },
-//   { passive: false }
-// );
+document.body.addEventListener(
+  "wheel",
+  (e) => {
+    if (e.path && e.path.includes(document.getElementById("the-country-map"))) {
+      e.preventDefault();
+    }
+  },
+  { passive: false }
+);
 
 export default function App() {
   const history = useHistory();
