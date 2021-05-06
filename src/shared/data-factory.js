@@ -597,7 +597,7 @@ export const CountriesMasterList = [
     location: "Serbia",
     iso_code: "SRB",
     coordinates: [21.0059, 44.0165],
-    population: 33699947,
+    population: 6944975,
   },
   {
     location: "Slovakia",
